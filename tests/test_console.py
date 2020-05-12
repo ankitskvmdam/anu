@@ -3,10 +3,8 @@ from unittest.mock import Mock
 
 from click.testing import CliRunner
 import pytest
-from pytest_mock import MockFixture
-import requests
 
-from hypermodern_python import console
+from anu.cli import main
 
 
 @pytest.fixture
@@ -17,5 +15,5 @@ def runner() -> CliRunner:
 
 def test_main_succeeds(runner: CliRunner, mock_requests_get: Mock) -> None:
     """It exits with a status code of zero."""
-    result = runner.invoke(console.main)
+    result = runner.invoke(main.main)
     assert result.exit_code == 0

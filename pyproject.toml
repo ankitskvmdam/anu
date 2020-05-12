@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "Anu"
 version = "0.1.0"
-description = "Differentiating interactions among protein, DNA and RNA."
+description = "Predicting interactions among protein, DNA and RNA."
 authors = ["ank <hello@ankdev.me>"]
 license = "MIT"
 readme = "README.md"
@@ -17,6 +17,15 @@ requests = "^2.22.0"
 marshmallow = "^3.3.0"
 desert = "^2020.1.6"
 importlib-metadata = {version = "^1.5.0", python = "<3.8"}
+torch = "^1.5.0"
+pypdb = "^1.300"
+biopython = "^1.76"
+vaex-core = "^1.5.0"
+nglview = "^2.7.5"
+vaex-arrow = "^0.4.2"
+matplotlib = "^3.2.1"
+sacred = "^0.8.1"
+hiplot = "^0.1.9"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.3.2"
@@ -40,6 +49,10 @@ xdoctest = "^0.11.0"
 sphinx = "^2.3.1"
 sphinx-autodoc-typehints = "^1.10.3"
 codecov = "^2.0.15"
+notebook = "^6.0.3"
+nbdime = "^2.0.0"
+nox = "^2019.11.9 "
+pre-commit = "^2.4.0"
 
 [tool.poetry.scripts]
 hypermodern-python = "anu.cli.main:main"
@@ -49,7 +62,7 @@ source = ["src", "*/site-packages"]
 
 [tool.coverage.run]
 branch = true
-source = ["hypermodern_python"]
+source = ["anu"]
 
 [tool.coverage.report]
 show_missing = true

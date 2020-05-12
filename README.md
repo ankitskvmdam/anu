@@ -2,4 +2,4 @@
 
 # Anu
 
-Differentiating interactions among protein, DNA and RNA.
+Predicting interactions among protein, DNA and RNA.
