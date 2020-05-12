@@ -26,6 +26,7 @@ vaex-arrow = "^0.4.2"
 matplotlib = "^3.2.1"
 sacred = "^0.8.1"
 hiplot = "^0.1.9"
+nbformat = "^5.0.6"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.3.2"
