@@ -27,6 +27,7 @@ matplotlib = "^3.2.1"
 sacred = "^0.8.1"
 hiplot = "^0.1.9"
 nbformat = "^5.0.6"
+pymex-lukasz99 = {git = "https://github.com/ankitskvmdam/pymex"}
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.3.2"
@@ -56,7 +57,7 @@ nox = "^2019.11.9 "
 pre-commit = "^2.4.0"
 
 [tool.poetry.scripts]
-hypermodern-python = "anu.cli.main:main"
+anu = "anu.cli.main:main"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
