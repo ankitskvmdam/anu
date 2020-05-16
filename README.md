@@ -1,11 +1,19 @@
 # Anu
 
+> This project is not completed.
+
 Predicting interactions among protein, DNA and RNA.
 
 ## Getting Started
 
 
 ## Developing
+
+### Clone this repository
+
+```bash
+git clone https://github.com/ankitskvmdam/anu.git
+```
 
 ### Create a python virtual env
 
