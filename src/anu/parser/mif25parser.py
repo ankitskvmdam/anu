@@ -1,39 +1,7 @@
-# import xml.etree.ElementTree as ET
-# from lxml import etree as ET
-
-# location = "./raw/test.mif25"
-# test_location = "./test.xml"
-
-# parser = ET.XMLParser(remove_blank_text=True)
-# dom = ET.parse(location, parser)
-
-# # print(ET.tostring(dom))
-# ns = {"mif": "http://psi.hupo.org/mi/mif"}
-
-# entry_list = dom.xpath("//mif:entry", namespaces=ns)
-
-# first_entry = entry_list[0]
-
-# first_interactor_list = first_entry.xpath("//mif:interactorList", namespaces=ns)
-
-# first_interactor = first_interactor_list[0].xpath("//mif:interactor", namespaces=ns)
-
-# root = first_interactor[0]
-
-# print(root.attrib, root.text)
-# for child in root:
-#     print(child.tag, child.attrib, child.text)
-
-# for child in first_entry:
-#     print(child.tag, child.attrib, child.text)
-
-# for child in first_interactor_list:
-#     print(child.tag, child.attrib, child.text)
-
-
 """mif25 parser so that it can be processed by pandas dataframe."""
+
 from lxml import etree as ET
-from typing import List, TypedDict
+from typing import List, Optional, Tuple, TypedDict
 
 
 class Xref(TypedDict):
@@ -46,6 +14,13 @@ class Xref(TypedDict):
     refTypeAc: str
 
 
+class Name(TypedDict):
+    """Dictionary shape for name."""
+
+    short_label: str
+    fullname: str
+
+
 class FileDict(TypedDict):
     """Shape of dictionary which will be return by parser."""
 
@@ -53,7 +28,8 @@ class FileDict(TypedDict):
     short_label: List[str]
     fullname: List[str]
     xref: List[List[Xref]]
-    interactor_type: List[str]
+    interactor_type_fullname: List[str]
+    interfactor_type_short_label: List[str]
     interactor_type_xref: List[List[Xref]]
     organism_ncbi_tax_id: List[str]
     organism_short_label: List[str]
@@ -70,9 +46,10 @@ class Mif25Parser:
             "interactor_id": [],
             "short_label": [],
             "fullname": [],
-            "xref": [[]],
-            "interactor_type": [],
-            "interactor_type_xref": [[]],
+            "xref": [],
+            "interactor_type_fullname": [],
+            "interactor_type_short_label": [],
+            "interactor_type_xref": [],
             "organism_ncbi_tax_id": [],
             "organism_short_label": [],
             "organism_fullname": [],
@@ -82,9 +59,64 @@ class Mif25Parser:
         """Return the list of node satisfy query."""
         return xml.xpath(query, namespaces=self.namespace)
 
-    def add_interactor_id(self: "Mif25Parser", id_dict: {"id": str}) -> None:
-        """Add interactor id to file_dict."""
-        self.file_dict.interactor_id.append(id_dict["id"])
+    def process_name(self: "Mif25Parser", names: ET.ElementTree) -> Name:
+        """Process names element tree"""
+
+        name = {}
+
+        short_label = self.get_xpath_list(names, "./mif:shortLabel")
+        fullname = self.get_xpath_list(names, "./mif:fullName")
+
+        if len(short_label) != 0:
+            short_label = short_label[0].text
+        else:
+            short_label = ""
+
+        if len(fullname) != 0:
+            fullname = fullname[0].text
+        else:
+            fullname = ""
+
+        name["short_label"] = short_label
+        name["fullname"] = fullname
+
+        return name
+
+    def process_xref(self: "Mif25Parser", xrefs: ET.ElementTree) -> List[Xref]:
+        """Process xref."""
+        primary_ref = self.get_xpath_list(xrefs, "./mif:primaryRef")[0]
+        secondary_refs = self.get_xpath_list(xrefs, "./mif:secondaryRef")
+
+        xref_list: Xref = [primary_ref.attrib]
+
+        for ref in secondary_refs:
+            xref_list.append(ref.attrib)
+
+        return xref_list
+
+    def process_interactor_type(
+        self: "Mif25Parser", interactor_type: ET.ElementTree
+    ) -> None:
+        """Process interactor type dom."""
+        names = self.get_xpath_list(interactor_type, "./mif:names")[0]
+        xrefs = self.get_xpath_list(interactor_type, "./mif:xref")[0]
+
+        name = self.process_name(names)
+        xref_list = self.process_xref(xrefs)
+
+        self.file_dict["interactor_type_short_label"].append(name["short_label"])
+        self.file_dict["interactor_type_fullname"].append(name["fullname"])
+        self.file_dict["interactor_type_xref"].append(xref_list)
+
+    def process_organism(self: "Mif25Parser", organism: ET.ElementTree) -> None:
+        """Process organism type dom."""
+        names = self.get_xpath_list(organism, "./mif:names")[0]
+
+        name = self.process_name(names)
+
+        self.file_dict["organism_short_label"].append(name["short_label"])
+        self.file_dict["organism_fullname"].append(name["fullname"])
+        self.file_dict["organism_ncbi_tax_id"].append(organism.attrib["ncbiTaxId"])
 
     def parse(self: "Mif25Parser", path: str) -> None:
         """Parse the mif25 file.
@@ -99,24 +131,23 @@ class Mif25Parser:
         # Currently, assuming there is only one entry node and interactor list node.
         entry_list = self.get_xpath_list(xml, "//mif:entry")
         interactor_list_list = self.get_xpath_list(
-            entry_list[0], "//mif:interactorList"
+            entry_list[0], "./mif:interactorList"
         )
 
-        interactors = self.get_xpath_list(interactor_list_list[0], "//mif:interactor")
+        interactors = self.get_xpath_list(interactor_list_list[0], "./mif:interactor")
 
         for interactor in interactors:
-            # self.add_interactor_id(interactor.attrib["id"])
-            names = self.get_xpath_list(interactor, "//mif:names")[0]
-            xref = self.get_xpath_list(interactor, "//mif:xref")[0]
-            interactor_type = self.get_xpath_list(interactor, "//mif:interactorType")[0]
-            orgnamism = self.get_xpath_list(interactor, "//mif:organism")[0]
+            names = self.get_xpath_list(interactor, "./mif:names")[0]
+            xrefs = self.get_xpath_list(interactor, "./mif:xref")[0]
+            interactor_type = self.get_xpath_list(interactor, "./mif:interactorType")[0]
+            organism = self.get_xpath_list(interactor, "./mif:organism")[0]
 
-            for child in names:
-                print(child.tag, child.text)
-            break
+            name = self.process_name(names)
+            xref_list = self.process_xref(xrefs)
 
-
-parser = Mif25Parser()
-location = "./raw/test.mif25"
-
-parser.parse(location)
+            self.file_dict["interactor_id"].append(interactor.attrib["id"])
+            self.file_dict["short_label"].append(name["short_label"])
+            self.file_dict["fullname"].append(name["fullname"])
+            self.file_dict["xref"].append(xref_list)
+            self.process_interactor_type(interactor_type)
+            self.process_organism(organism)
