@@ -1,0 +1,2440 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<entrySet level="2" version="5" minorVersion="4" xmlns="http://psi.hupo.org/mi/mif" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://psi.hupo.org/mi/mif http://dip.doe-mbi.ucla.edu/psimi/MIF254.xsd">
+    <entry>
+        <source releaseDate="2017-02-05">
+            <names>
+                <shortLabel>DIP</shortLabel>
+                <fullName>Database of Interacting Proteins</fullName>
+            </names>
+            <bibref>
+                <xref>
+                    <primaryRef db="pubmed" dbAc="MI:0446" id="14681454" refType="primary-reference" refTypeAc="MI:0358" />
+                </xref>
+            </bibref>
+            <xref>
+                <primaryRef db="psi-mi" dbAc="MI:0448" id="MI:0465" refType="primary-reference" refTypeAc="MI:0358" />
+            </xref>
+            <attributeList>
+                <attribute name="url">http://dip.doe-mbi.ucla.edu</attribute>
+                <attribute name="postalAddress">611 Young Drive East; Los Angeles, CA 90095; USA</attribute>
+                <attribute name="email">dip@mbi.ucla.edu</attribute>
+            </attributeList>
+        </source>
+        <interactorList>
+            <interactor id="445">
+                <names>
+                    <shortLabel>Cdkn1b</shortLabel>
+                    <fullName>cyclin-cdk inhibitor p27</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-445N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P46414" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="12576" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="10090">
+                    <names>
+                        <shortLabel>Mus musculus</shortLabel>
+                        <fullName>house mouse</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="559">
+                <names>
+                    <fullName>cell division cycle-2-related protein kinase  ERK1</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-559N" refType="identity" refTypeAc="MI:0356" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="10090">
+                    <names>
+                        <shortLabel>Mus musculus</shortLabel>
+                        <fullName>house mouse</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="617">
+                <names>
+                    <shortLabel>CD4</shortLabel>
+                    <fullName>T-cell surface glycoprotein CD4 precursor</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-617N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_000607" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P01730" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="920" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="1025">
+                <names>
+                    <shortLabel>carB</shortLabel>
+                    <fullName>Carbamoyl-phosphate synthase large chain (Carbamoyl-phosphate synthetase ammonia chain)</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-1025N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_414574" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P00968" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="944775" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="83333">
+                    <names>
+                        <shortLabel>Escherichia coli K12</shortLabel>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="1026">
+                <names>
+                    <shortLabel>carA</shortLabel>
+                    <fullName>Carbamoyl-phosphate synthase small chain (Carbamoyl-phosphate synthetase glutamine chain)</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-1026N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_285726" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P00907" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="949025" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="83333">
+                    <names>
+                        <shortLabel>Escherichia coli K12</shortLabel>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="19">
+                <names>
+                    <shortLabel>dpp</shortLabel>
+                    <fullName>decapentaplegic protein precursor</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-19N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_477311" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P07713" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="33432" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="7227">
+                    <names>
+                        <shortLabel>Drosophila melanogaster</shortLabel>
+                        <fullName>fruit fly</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="25">
+                <names>
+                    <shortLabel>CDC16</shortLabel>
+                    <fullName>Anaphase-promoting complex subunit CDC16</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-25N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_012903" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P09798" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="853846" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="343">
+                <names>
+                    <shortLabel>TAF2</shortLabel>
+                    <fullName>Transcription initiation factor TFIID subunit 2</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-343N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_009971" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P23255" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="850409" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="80">
+                <names>
+                    <shortLabel>Tbp</shortLabel>
+                    <fullName>TATA-box-binding protein</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-80N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_523805" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P20227" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="37476" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="7227">
+                    <names>
+                        <shortLabel>Drosophila melanogaster</shortLabel>
+                        <fullName>fruit fly</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="493">
+                <names>
+                    <shortLabel>Taf6</shortLabel>
+                    <fullName>transcription factor IID chain</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-493N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q62311" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="21343" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="10090">
+                    <names>
+                        <shortLabel>Mus musculus</shortLabel>
+                        <fullName>house mouse</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="147">
+                <names>
+                    <shortLabel>TAF1</shortLabel>
+                    <fullName>transcription initiation factor IID 250K chain splice form 1</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-147N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P21675" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="6872" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="472">
+                <names>
+                    <shortLabel>JARID1A</shortLabel>
+                    <fullName>retinoblastoma binding protein 2</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-472N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_005047" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P29375" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="5927" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="582">
+                <names>
+                    <shortLabel>RB1</shortLabel>
+                    <fullName>Retinoblastoma-associated protein</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-582N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_000312" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P06400" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="5925" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="551">
+                <names>
+                    <shortLabel>BCY1</shortLabel>
+                    <fullName>protein kinase , cAMP-dependent, regulatory chain</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-551N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_012231" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P07278" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="854778" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="548">
+                <names>
+                    <shortLabel>Tpk1p</shortLabel>
+                    <fullName>protein kinase , cAMP-dependent, catalytic chain 1</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-548N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_012371" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P06244" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="853275" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="1078">
+                <names>
+                    <shortLabel>TBP</shortLabel>
+                    <fullName>TATA-box-binding protein</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-1078N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_003185" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P20226" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="6908" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="51">
+                <names>
+                    <shortLabel>POU2F2</shortLabel>
+                    <fullName>transcription factor Oct-2</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-51N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P09086" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="5452" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="637">
+                <names>
+                    <shortLabel>h</shortLabel>
+                    <fullName>segmentation protein hairy</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-637N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_523977" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P14003" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="38995" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="7227">
+                    <names>
+                        <shortLabel>Drosophila melanogaster</shortLabel>
+                        <fullName>fruit fly</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="40">
+                <names>
+                    <shortLabel>gro</shortLabel>
+                    <fullName>enhancer of split protein</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-40N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_733133" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P16371" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="43162" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="7227">
+                    <names>
+                        <shortLabel>Drosophila melanogaster</shortLabel>
+                        <fullName>fruit fly</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="721">
+                <names>
+                    <shortLabel>HLHmbeta</shortLabel>
+                    <fullName>helix-loop-helix protein m-beta</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-721N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_524505" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q01069" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="43152" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="7227">
+                    <names>
+                        <shortLabel>Drosophila melanogaster</shortLabel>
+                        <fullName>fruit fly</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="723">
+                <names>
+                    <shortLabel>HLHmgamma</shortLabel>
+                    <fullName>helix-loop-helix protein m-gamma</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-723N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_524504" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q01070" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="43151" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="7227">
+                    <names>
+                        <shortLabel>Drosophila melanogaster</shortLabel>
+                        <fullName>fruit fly</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="189">
+                <names>
+                    <shortLabel>CBL</shortLabel>
+                    <fullName>transforming protein (cbl)</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-189N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_005179" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P22681" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="867" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="199">
+                <names>
+                    <shortLabel>CRK</shortLabel>
+                    <fullName>Proto-oncogene C-crk</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-199N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="refseq" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P46108" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="1398" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="18">
+                <names>
+                    <shortLabel>SNF1</shortLabel>
+                    <fullName>Carbon catabolite-derepressing protein kinase</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-18N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_010765" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P06782" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="852088" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="780">
+                <names>
+                    <shortLabel>Sip3p</shortLabel>
+                    <fullName>SIP3 protein</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-780N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_014142" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P38717" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="855464" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="119">
+                <names>
+                    <shortLabel>PIK3R1</shortLabel>
+                    <fullName>Phosphatidylinositol 3-kinase regulatory subunit alpha</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-119N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P27986" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="5295" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="480">
+                <names>
+                    <shortLabel>INSR</shortLabel>
+                    <fullName>Insulin receptor</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-480N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P06213" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="3643" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="743">
+                <names>
+                    <shortLabel>YWHAB</shortLabel>
+                    <fullName>14-3-3 protein beta/alpha</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-743N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P31946" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="7529" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="1048">
+                <names>
+                    <shortLabel>RAF1</shortLabel>
+                    <fullName>RAF proto-oncogene serine/threonine-protein kinase</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-1048N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_002871" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P04049" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="5894" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="425">
+                <names>
+                    <shortLabel>RBL2</shortLabel>
+                    <fullName>Retinoblastoma-like protein 2</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-425N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_005602" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q08999" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="5934" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="704">
+                <names>
+                    <shortLabel>MYOD1</shortLabel>
+                    <fullName>Myoblast determination protein 1</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-704N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_002469" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P15172" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="4654" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="1104">
+                <names>
+                    <shortLabel>Ilv2p</shortLabel>
+                    <fullName>acetolactate synthase</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-1104N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_013826" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P07342" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="855135" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="671">
+                <names>
+                    <shortLabel>ILV6</shortLabel>
+                    <fullName>Acetolactate synthase small subunit, mitochondrial precursor</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-671N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_009918" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P25605" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="850348" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="400">
+                <names>
+                    <fullName>CC chemokine receptor 5</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-400N" refType="identity" refTypeAc="MI:0356" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="391">
+                <names>
+                    <shortLabel>CXCL12</shortLabel>
+                    <fullName>cytokine SDF-1-beta</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-391N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P48061" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="6387" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="53">
+                <names>
+                    <shortLabel>Hmga1</shortLabel>
+                    <fullName>nonhistone chromosomal protein HMG-I(Y)</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-53N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_057869" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P17095" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="15361" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="10090">
+                    <names>
+                        <shortLabel>Mus musculus</shortLabel>
+                        <fullName>house mouse</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="953">
+                <names>
+                    <shortLabel>SPI1</shortLabel>
+                    <fullName>PU.1 transcription factor</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-953N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_003111" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P17947" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="6688" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="169">
+                <names>
+                    <shortLabel>SSRP1</shortLabel>
+                    <fullName>FACT complex subunit SSRP1</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-169N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_003137" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q08945" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="6749" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="239">
+                <names>
+                    <shortLabel>e(y)1</shortLabel>
+                    <fullName>Transcription initiation factor TFIID subunit 9</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-239N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_523391" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q27272" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="32762" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="7227">
+                    <names>
+                        <shortLabel>Drosophila melanogaster</shortLabel>
+                        <fullName>fruit fly</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="262">
+                <names>
+                    <shortLabel>CKB2</shortLabel>
+                    <fullName>casein kinase II - alpha chain</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-262N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_014682" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P38930" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="854204" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="48">
+                <names>
+                    <shortLabel>CKA1</shortLabel>
+                    <fullName>Casein kinase II subunit alpha</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-48N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_012229" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P15790" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="854776" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="636">
+                <names>
+                    <shortLabel>ase</shortLabel>
+                    <fullName>achaete-scute locus protein ase</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-636N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_476694" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P09775" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="30985" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="7227">
+                    <names>
+                        <shortLabel>Drosophila melanogaster</shortLabel>
+                        <fullName>fruit fly</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="356">
+                <names>
+                    <shortLabel>HLHm3</shortLabel>
+                    <fullName>enhancer of split locus protein m3</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-356N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_524509" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q01068" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="43156" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="7227">
+                    <names>
+                        <shortLabel>Drosophila melanogaster</shortLabel>
+                        <fullName>fruit fly</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="187">
+                <names>
+                    <shortLabel>ac</shortLabel>
+                    <fullName>Achaete-scute complex protein T5</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-187N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_476824" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P10083" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="30981" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="7227">
+                    <names>
+                        <shortLabel>Drosophila melanogaster</shortLabel>
+                        <fullName>fruit fly</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="1074">
+                <names>
+                    <fullName>large T antigen</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-1074N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q9DH70" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="1489531" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="10633">
+                    <names>
+                        <shortLabel>Simian virus 40</shortLabel>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="368">
+                <names>
+                    <shortLabel>TP53</shortLabel>
+                    <fullName>Cellular tumor antigen p53</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-368N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P04637" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="7157" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="150">
+                <names>
+                    <shortLabel>YY1</shortLabel>
+                    <fullName>Transcriptional repressor protein YY1</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-150N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_003394" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P25490" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="7528" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="257">
+                <names>
+                    <shortLabel>EP300</shortLabel>
+                    <fullName>Histone acetyltransferase p300</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-257N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_001420" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q09472" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="2033" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="952">
+                <names>
+                    <shortLabel>CREBBP</shortLabel>
+                    <fullName>CREB-binding protein</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-952N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_004371" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q92793" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="1387" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="331">
+                <names>
+                    <shortLabel>SREBP-1</shortLabel>
+                    <fullName>Sterol regulatory element 1 binding protein, SREBP-1</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-331N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P36956" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="6720" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="74">
+                <names>
+                    <shortLabel>TCF3</shortLabel>
+                    <fullName>Transcription factor E2-alpha</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-74N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P15923" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="6929" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="327">
+                <names>
+                    <shortLabel>LMX1A</shortLabel>
+                    <fullName>transcription factor lmx-1</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-327N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q04650" refType="identity" refTypeAc="MI:0356" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="10036">
+                    <names>
+                        <shortLabel>Mesocricetus auratus</shortLabel>
+                        <fullName>golden hamster</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="163">
+                <names>
+                    <shortLabel>TCF4</shortLabel>
+                    <fullName>transcription factor ITF-2</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-163N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_003190" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P15884" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="6925" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="713">
+                <names>
+                    <shortLabel>ID3</shortLabel>
+                    <fullName>helix-loop-helix protein ID3</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-713N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_002158" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q02535" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="3399" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="681">
+                <names>
+                    <shortLabel>RPD3</shortLabel>
+                    <fullName>Histone deacetylase RPD3</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-681N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_014069" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P32561" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="855386" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="497">
+                <names>
+                    <shortLabel>CDC28</shortLabel>
+                    <fullName>protein kinase  cdc28</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-497N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P43063" refType="identity" refTypeAc="MI:0356" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="5476">
+                    <names>
+                        <shortLabel>Candida albicans</shortLabel>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="153">
+                <names>
+                    <shortLabel>mlkA</shortLabel>
+                    <fullName>myosin-light-chain kinase  A</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-153N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P25323" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="8622308" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="44689">
+                    <names>
+                        <shortLabel>Dictyostelium discoideum</shortLabel>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="768">
+                <names>
+                    <shortLabel>ATMPK3</shortLabel>
+                    <fullName>mitogen-activated protein kinase 3</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-768N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_190150" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q39023" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="823706" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="3702">
+                    <names>
+                        <shortLabel>Arabidopsis thaliana</shortLabel>
+                        <fullName>thale cress</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="1042">
+                <names>
+                    <shortLabel>ABL1</shortLabel>
+                    <fullName>Proto-oncogene tyrosine-protein kinase ABL1</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-1042N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P00519" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="25" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="182">
+                <names>
+                    <shortLabel>ATM</shortLabel>
+                    <fullName>ataxia telangiectasia-associated protein</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-182N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q13315" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="472" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="785">
+                <names>
+                    <shortLabel>Gdi1p</shortLabel>
+                    <fullName>GDP dissociation inhibitor GDI1</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-785N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_011062" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P39958" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="856876" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="372">
+                <names>
+                    <shortLabel>RAB4A</shortLabel>
+                    <fullName>GTP-binding protein Rab4</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-372N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P20338" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="5867" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="383">
+                <names>
+                    <shortLabel>ACTN2</shortLabel>
+                    <fullName>alpha-actinin 2</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-383N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_001094" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P35609" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="88" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="674">
+                <names>
+                    <shortLabel>Grin1</shortLabel>
+                    <fullName>N-methyl-D-aspartate receptor chain NMDA-R1A</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-674N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_058706" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P35439" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="24408" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="10116">
+                    <names>
+                        <shortLabel>Rattus norvegicus</shortLabel>
+                        <fullName>Norway rat</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="538">
+                <names>
+                    <shortLabel>CALM</shortLabel>
+                    <fullName>calmodulin</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-538N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_001734" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P02593" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="805" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="459">
+                <names>
+                    <shortLabel>PPP2R5A</shortLabel>
+                    <fullName>gene PP2A protein</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-459N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_006234" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q15172" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="5525" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="155">
+                <names>
+                    <shortLabel>TLX1</shortLabel>
+                    <fullName>homeotic protein Hox 11</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-155N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P31314" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="3195" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="752">
+                <names>
+                    <shortLabel>FFC</shortLabel>
+                    <fullName>signal recognition particle 54CP protein precursor</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-752N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_196014" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P37107" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="830273" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="3702">
+                    <names>
+                        <shortLabel>Arabidopsis thaliana</shortLabel>
+                        <fullName>thale cress</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="62">
+                <names>
+                    <shortLabel>petA</shortLabel>
+                    <fullName>Cytochrome f</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-62N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P36438" refType="identity" refTypeAc="MI:0356" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="3711">
+                    <names>
+                        <shortLabel>Brassica rapa</shortLabel>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="908">
+                <names>
+                    <fullName>telomerase component p80</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-908N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q94818" refType="identity" refTypeAc="MI:0356" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="5911">
+                    <names>
+                        <shortLabel>Tetrahymena thermophila</shortLabel>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="13">
+                <names>
+                    <shortLabel>PHO2</shortLabel>
+                    <fullName>Regulatory protein PHO2</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-13N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_010177" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P07269" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="851452" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="142">
+                <names>
+                    <shortLabel>BAS1</shortLabel>
+                    <fullName>Transcription factor BAS1</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-142N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_013025" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P22035" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="853974" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="962">
+                <names>
+                    <shortLabel>SOL1</shortLabel>
+                    <fullName>6-phosphogluconolactonase 1</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-962N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_014432" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P50278" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="855769" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="760">
+                <names>
+                    <shortLabel>LOS1</shortLabel>
+                    <fullName>pre-tRNA splicing protein LOS1</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-760N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_012717" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P33418" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="853630" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="541">
+                <names>
+                    <shortLabel>DNASE1</shortLabel>
+                    <fullName>Deoxyribonuclease I precursor</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-541N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_776959" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P00639" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="282217" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9913">
+                    <names>
+                        <shortLabel>Bos taurus</shortLabel>
+                        <fullName>cow</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="311">
+                <names>
+                    <shortLabel>Actin</shortLabel>
+                    <fullName>actin, skeletal muscle</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-311N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P02568" refType="identity" refTypeAc="MI:0356" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9986">
+                    <names>
+                        <shortLabel>Oryctolagus cuniculus</shortLabel>
+                        <fullName>rabbit</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="90">
+                <names>
+                    <shortLabel>LBP</shortLabel>
+                    <fullName>lipopolysaccharide-binding protein</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-90N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P18428" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="3929" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="1030">
+                <names>
+                    <shortLabel>CD14</shortLabel>
+                    <fullName>monocyte surface glycoprotein CD14 precursor</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-1030N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_000582" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P08571" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="929" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="1084">
+                <names>
+                    <shortLabel>Gfap</shortLabel>
+                    <fullName>glial fibrillary acidic protein, astrocyte</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-1084N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P03995" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="14580" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="10090">
+                    <names>
+                        <shortLabel>Mus musculus</shortLabel>
+                        <fullName>house mouse</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="1081">
+                <names>
+                    <shortLabel>PRNP</shortLabel>
+                    <fullName>major prion PrP-Sc protein precursor</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-1081N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P04273" refType="identity" refTypeAc="MI:0356" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="10036">
+                    <names>
+                        <shortLabel>Mesocricetus auratus</shortLabel>
+                        <fullName>golden hamster</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="1065">
+                <names>
+                    <shortLabel>Bcl2</shortLabel>
+                    <fullName>transforming protein bcl-2-alpha</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-1065N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_033871" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P10417" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="12043" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="10090">
+                    <names>
+                        <shortLabel>Mus musculus</shortLabel>
+                        <fullName>house mouse</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="4">
+                <names>
+                    <shortLabel>Prnp</shortLabel>
+                    <fullName>Major prion protein</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-4N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_035300" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P04925" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="19122" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="10090">
+                    <names>
+                        <shortLabel>Mus musculus</shortLabel>
+                        <fullName>house mouse</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="58">
+                <names>
+                    <shortLabel>HSPD1</shortLabel>
+                    <fullName>60 kDa heat shock protein, mitochondrial precursor</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-58N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P10809" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="3329" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="339">
+                <names>
+                    <shortLabel>groL</shortLabel>
+                    <fullName>60 kDa chaperonin</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-339N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_313151" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P0A6F5" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="948665" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="83333">
+                    <names>
+                        <shortLabel>Escherichia coli K12</shortLabel>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="508">
+                <names>
+                    <shortLabel>malE</shortLabel>
+                    <fullName>Maltose-binding periplasmic protein precursor (Maltodextrin-binding protein) (MMBP)</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-508N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_290668" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P02928" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="948538" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="83333">
+                    <names>
+                        <shortLabel>Escherichia coli K12</shortLabel>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="539">
+                <names>
+                    <shortLabel>malG</shortLabel>
+                    <fullName>Maltose transport system permease protein malG</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-539N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_290666" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P07622" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="948530" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="83333">
+                    <names>
+                        <shortLabel>Escherichia coli K12</shortLabel>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="1043">
+                <names>
+                    <shortLabel>BCL2</shortLabel>
+                    <fullName>Apoptosis regulator Bcl-2</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-1043N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_000624" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P10415" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="596" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="232">
+                <names>
+                    <shortLabel>BAX</shortLabel>
+                    <fullName>Apoptosis regulator BAX</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-232N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q07812" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="581" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="250">
+                <names>
+                    <shortLabel>ced-9</shortLabel>
+                    <fullName>apoptosis suppressor CED-9</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-250N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_499284" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P41958" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="3565776" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="6239">
+                    <names>
+                        <shortLabel>Caenorhabditis elegans</shortLabel>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="1016">
+                <names>
+                    <shortLabel>ced-4</shortLabel>
+                    <fullName>cell death protein ced-4</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-1016N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_498007" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P30429" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="175643" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="6239">
+                    <names>
+                        <shortLabel>Caenorhabditis elegans</shortLabel>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="244">
+                <names>
+                    <shortLabel>ced-3</shortLabel>
+                    <fullName>interleukin-1 beta-converting enzyme homolog CED-3</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-244N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_502538" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P42573" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="178272" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="6239">
+                    <names>
+                        <shortLabel>Caenorhabditis elegans</shortLabel>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="696">
+                <names>
+                    <shortLabel>Cyc8p</shortLabel>
+                    <fullName>CYC8 protein</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-696N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_009670" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P14922" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="852410" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="665">
+                <names>
+                    <shortLabel>MIG1</shortLabel>
+                    <fullName>regulatory protein MIG1</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-665N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_011480" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P27705" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="852848" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="4932">
+                    <names>
+                        <shortLabel>Saccharomyces cerevisiae</shortLabel>
+                        <fullName>baker's yeast</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="31">
+                <names>
+                    <shortLabel>CCL5</shortLabel>
+                    <fullName>monocyte chemoattractant cytokine RANTES precursor</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-31N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_002976" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="P13501" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="6352" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+            <interactor id="285">
+                <names>
+                    <shortLabel>TRADD</shortLabel>
+                    <fullName>Tumor necrosis factor receptor type 1-associated DEATH domain protein</fullName>
+                </names>
+                <xref>
+                    <primaryRef db="dip" dbAc="MI:0465" id="DIP-285N" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="refseq" dbAc="MI:0481" id="NP_003780" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="uniprot knowledge base" dbAc="MI:0486" id="Q15628" refType="identity" refTypeAc="MI:0356" />
+                    <secondaryRef db="entrez gene/locuslink" dbAc="MI:0477" id="8717" refType="gene product" refTypeAc="MI:0251" />
+                </xref>
+                <interactorType>
+                    <names>
+                        <fullName>protein</fullName>
+                    </names>
+                    <xref>
+                        <primaryRef refTypeAc="MI:0356" refType="identity" id="MI:0326" dbAc="MI:0488" db="psi-mi" />
+                    </xref>
+                </interactorType>
+                <organism ncbiTaxId="9606">
+                    <names>
+                        <shortLabel>Homo sapiens</shortLabel>
+                        <fullName>Human</fullName>
+                    </names>
+                </organism>
+            </interactor>
+        </interactorList>
+    </entry>
+</entrySet>
