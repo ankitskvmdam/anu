@@ -13,6 +13,7 @@ keywords = ["anu", "protein", "dna", "rna", "interactions", "machine learning", 
 [tool.poetry.dependencies]
 python = "^3.7"
 click = "^7.0"
+defusedxml = "^0.6"
 requests = "^2.22.0"
 marshmallow = "^3.3.0"
 desert = "^2020.1.6"

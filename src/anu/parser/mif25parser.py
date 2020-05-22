@@ -1,7 +1,8 @@
 """mif25 parser so that it can be processed by pandas dataframe."""
 
-from lxml import etree as ET
-from typing import List, Optional, Tuple, TypedDict
+from typing import List, TypedDict
+
+from lxml import etree as ET  # ignore: type
 
 
 class Xref(TypedDict):
@@ -29,7 +30,7 @@ class FileDict(TypedDict):
     fullname: List[str]
     xref: List[List[Xref]]
     interactor_type_fullname: List[str]
-    interfactor_type_short_label: List[str]
+    interactor_type_short_label: List[str]
     interactor_type_xref: List[List[Xref]]
     organism_ncbi_tax_id: List[str]
     organism_short_label: List[str]
@@ -55,14 +56,15 @@ class Mif25Parser:
             "organism_fullname": [],
         }
 
-    def get_xpath_list(self: "Mif25Parser", xml: ET.ElementTree, query: str) -> None:
+    def get_xpath_list(
+        self: "Mif25Parser", xml: ET.ElementTree, query: str
+    ) -> ET.ElementTree:
         """Return the list of node satisfy query."""
         return xml.xpath(query, namespaces=self.namespace)
 
     def process_name(self: "Mif25Parser", names: ET.ElementTree) -> Name:
         """Process names element tree"""
-
-        name = {}
+        name: Name = {"short_label": "", "fullname": ""}
 
         short_label = self.get_xpath_list(names, "./mif:shortLabel")
         fullname = self.get_xpath_list(names, "./mif:fullName")
@@ -87,7 +89,7 @@ class Mif25Parser:
         primary_ref = self.get_xpath_list(xrefs, "./mif:primaryRef")[0]
         secondary_refs = self.get_xpath_list(xrefs, "./mif:secondaryRef")
 
-        xref_list: Xref = [primary_ref.attrib]
+        xref_list: List[Xref] = [primary_ref.attrib]
 
         for ref in secondary_refs:
             xref_list.append(ref.attrib)
@@ -124,7 +126,6 @@ class Mif25Parser:
         Args:
             path: path of the mif25 file.
         """
-
         xml_parser = ET.XMLParser(remove_blank_text=True)
         xml = ET.parse(path, xml_parser)
 
