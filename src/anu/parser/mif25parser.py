@@ -2,7 +2,7 @@
 
 from typing import List, TypedDict
 
-from lxml import etree as ET  # ignore: type
+from lxml import etree as ET  # type: ignore
 
 
 class Xref(TypedDict):
