@@ -1,11 +1,12 @@
 """modules to realted to data frame operations."""
 
 import os
+from typing import Optional
 
 import vaex
 
 
-def convert_apid_to_dataframe(filename: str) -> vaex.dataframe.DataFrame:
+def convert_apid_to_dataframe(filename: str,) -> Optional[vaex.dataframe.DataFrame]:
     """Convert the apid file to pandas dataframe.
 
     File path must be relative to data/raw
@@ -16,12 +17,10 @@ def convert_apid_to_dataframe(filename: str) -> vaex.dataframe.DataFrame:
     Returns:
         Pandas dataframe.
     """
-    path = os.path.realpath(os.path.join("..", "..", "..", "data", "raw", "filename"))
+    path = os.path.realpath(os.path.join("..", "..", "..", "data", "raw", filename))
 
     if os.path.exists(path):
-        df = vaex.read_csv(filepath_or_buffer=path, sep="\t", lineterminator="\n")
-
-    return df
+        return vaex.read_csv(filepath_or_buffer=path, sep="\t", lineterminator="\n")
 
 
 def save_dataframe_to_file(df: vaex.dataframe.DataFrame, filename: str) -> bool:
@@ -34,12 +33,20 @@ def save_dataframe_to_file(df: vaex.dataframe.DataFrame, filename: str) -> bool:
     Returns:
         True if successfully save the file.
     """
+    import pathlib
+
     path_to_processed_data = os.path.realpath(
         os.path.join("..", "..", "..", "data", "processed")
     )
 
     if os.path.exists(path_to_processed_data):
         path = os.path.realpath(os.path.join(path_to_processed_data, filename))
+        dir = os.path.dirname(path)
+        pathlib.Path(dir).mkdir(parents=True, exist_ok=True)
+
+        if os.path.exists(f"{path}.arrow"):
+            os.remove(f"{path}.arrow")
+
         df.export(f"{path}.arrow")
         return True
 
