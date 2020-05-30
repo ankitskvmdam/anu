@@ -30,7 +30,7 @@ def extract_proteins_id_from_dataframe(
     return protein_df
 
 
-def fetch_pdb_using_uniprot_id(id: str) -> str:
+def fetch_pdb_using_uniprot_id(id: str) -> (str, int):
     """Fetch pdb file using uniprot id.
 
     Currently fetch pdb file using swiss-model using uniprot id.
@@ -39,7 +39,7 @@ def fetch_pdb_using_uniprot_id(id: str) -> str:
         id: uniprot id.
 
     Returns:
-        Return the pdb file.
+        Return a tuple of pdf file in text if found and status code.
     """
     import requests
 
@@ -49,5 +49,4 @@ def fetch_pdb_using_uniprot_id(id: str) -> str:
     complete_url = f"{base_url}{id}{format}"
 
     file = requests.get(complete_url)
-
-    return file.text
+    return (file.text, file.status_code)
