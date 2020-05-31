@@ -239,8 +239,8 @@ fetch_pdb_from_df(
 )
 
 
-# process_raw_csv_data(join("negatome", "non-interacting-protein-tab.tsv"), "negatome")
-# df = read_dataframe_from_file(join("negatome", "non-interacting-protein-tab"))
+# process_raw_csv_data(join("negatome", "non-interacting-protein.tsv"), "negatome")
+# df = read_dataframe_from_file(join("negatome", "non-interacting-protein"))
 # print(df)
 
 
@@ -248,18 +248,20 @@ fetch_pdb_from_df(
 #     join("negatome", "non-interacting-protein"),
 #     "negatome",
 #     "UniprotID_A",
-#     "UniprotID_B_",
+#     "UniprotID_B",
 # )
 
 # df = read_dataframe_from_file(
 #     join("protein_dataframes", "negatome", "non-interacting-protein")
 # )
 
-# for _, row in df.iterrows():
-#     # print(row["UniprotID_A"])
-#     # print(row["UniprotID_B"])
-#     file, status = fetch_pdb_using_uniprot_id(row["UniprotID_B_"])
-#     print(status)
-#     file, status = fetch_pdb_using_uniprot_id(row["UniprotID_A"])
-#     print(status)
-#     break
+# print(df)
+
+# # for _, row in df.iterrows():
+# #     # print(row["UniprotID_A"])
+# #     # print(row["UniprotID_B"])
+# #     file, status = fetch_pdb_using_uniprot_id(row["UniprotID_B_"])
+# #     print(status)
+# #     file, status = fetch_pdb_using_uniprot_id(row["UniprotID_A"])
+# #     print(status)
+# #     break
