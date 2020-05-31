@@ -30,39 +30,40 @@ def build_matrix(path: str, filename: str) -> vaex.dataframe.DataFrame:
         protein_residues = list(chain.get_residues())
 
         for residue in protein_residues:
-            atoms = list(residue.get_atoms())
-            x = []
-            y = []
-            z = []
+            if Polypeptide.is_aa(residue.get_resname()):
+                atoms = list(residue.get_atoms())
+                x = []
+                y = []
+                z = []
 
-            for atom in atoms:
-                vec = atom.get_vector()
-                x.append(vec.__getitem__(0))
-                y.append(vec.__getitem__(1))
-                z.append(vec.__getitem__(2))
+                for atom in atoms:
+                    vec = atom.get_vector()
+                    x.append(vec.__getitem__(0))
+                    y.append(vec.__getitem__(1))
+                    z.append(vec.__getitem__(2))
 
-            # calculate position of residue
-            x = mean(x)
-            y = mean(y)
-            z = mean(z)
+                # calculate position of residue
+                x = mean(x)
+                y = mean(y)
+                z = mean(z)
 
-            # one letter code
-            code = Polypeptide.three_to_one(residue.get_resname())
+                # one letter code
+                code = Polypeptide.three_to_one(residue.get_resname())
 
-            aa = amino_acid[code]
+                aa = amino_acid[code]
 
-            protein_matrix[0][col] = aa["code"]
-            protein_matrix[1][col] = x
-            protein_matrix[2][col] = y
-            protein_matrix[3][col] = z
-            protein_matrix[4][col] = aa["hydropathy"]
-            protein_matrix[5][col] = aa["hydropathy_index"]
-            protein_matrix[6][col] = aa["acidity_basicity"]
-            protein_matrix[7][col] = aa["mass"]
-            protein_matrix[8][col] = aa["isoelectric_point"]
-            protein_matrix[9][col] = aa["charge"]
+                protein_matrix[0][col] = aa["code"]
+                protein_matrix[1][col] = x
+                protein_matrix[2][col] = y
+                protein_matrix[3][col] = z
+                protein_matrix[4][col] = aa["hydropathy"]
+                protein_matrix[5][col] = aa["hydropathy_index"]
+                protein_matrix[6][col] = aa["acidity_basicity"]
+                protein_matrix[7][col] = aa["mass"]
+                protein_matrix[8][col] = aa["isoelectric_point"]
+                protein_matrix[9][col] = aa["charge"]
 
-            col = col + 1
+                col = col + 1
 
     # Prepare dict so it can be load to vaex dataframe
     dic = {}
@@ -75,8 +76,8 @@ def build_matrix(path: str, filename: str) -> vaex.dataframe.DataFrame:
 
 
 path = os.path.relpath(
-    os.path.join("..", "..", "..", "data", "raw", "pdb", "from_apid", "A0A1I9LP65.pdb")
+    os.path.join("..", "..", "..", "data", "raw", "pdb", "P18206.pdb")
 )
-df = build_matrix(path, "A0A1I9LP65")
+df = build_matrix(path, "P18206")
 
 print(df)
