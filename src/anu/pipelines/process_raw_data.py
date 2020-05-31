@@ -11,27 +11,28 @@ from anu.data.data_operations import (
     fetch_pdb_using_uniprot_id,
 )
 from anu.data.dataframe_operation import (
-    convert_apid_to_dataframe,
+    convert_csv_to_dataframe,
     read_dataframe_from_file,
     save_dataframe_to_file,
 )
 
 
-def process_raw_apid_data(path: str) -> None:
+def process_raw_csv_data(path: str, db_name: str, sep: str = "\t") -> None:
     """Process raw apid data.
 
     This function first read the raw data the save the dataframe
-    to /data/processed/apid folder
+    to /data/processed/{db_name} folder
 
     Args:
         path: path or raw apid file relative to /data/raw folder.
+        db_name: name of the database
     """
-    df = convert_apid_to_dataframe(path)
+    df = convert_csv_to_dataframe(path)
 
     # Get file name from path by removing extension
     filename = splitext(basename(path))[0]
 
-    filepath = join("apid", filename)
+    filepath = join(db_name, filename)
     save_dataframe_to_file(df, filepath)
 
 
@@ -84,9 +85,7 @@ def fetch_pdb_from_df(path: str, db_name: str) -> None:
     """
     import pathlib
 
-    base_path_for_pdb_files = realpath(
-        join("..", "..", "..", "data", "raw", "pdb", f"from_{db_name}")
-    )
+    base_path_for_pdb_files = realpath(join("..", "..", "..", "data", "raw", "pdb"))
 
     filename = splitext(basename(path))[0]
 
@@ -94,8 +93,13 @@ def fetch_pdb_from_df(path: str, db_name: str) -> None:
         join("..", "..", "..", "data", "processed", "protein_id", db_name, filename)
     )
 
+    base_path_for_processed = realpath(
+        join("..", "..", "..", "data", "processed", "protein_id")
+    )
+
     # Creating path
     pathlib.Path(base_path_for_pdb_files).mkdir(exist_ok=True, parents=True)
+    pathlib.Path(base_path_for_processed).mkdir(exist_ok=True, parents=True)
     pathlib.Path(base_path_for_processed_protein_id).mkdir(exist_ok=True, parents=True)
 
     # Load the dataframe
@@ -109,13 +113,9 @@ def fetch_pdb_from_df(path: str, db_name: str) -> None:
     for col_name in df.column_names:
         pair_selected[col_name] = []
 
-    processed_protein_ids_file_path = join(
-        base_path_for_processed_protein_id, "processed.json"
-    )
-    protein_fetched_ok_file_path = join(
-        base_path_for_processed_protein_id, "fetched_ok.json"
-    )
-    protein_missing_file_path = join(base_path_for_processed_protein_id, "missing.json")
+    processed_protein_ids_file_path = join(base_path_for_processed, "processed.json")
+    protein_fetched_ok_file_path = join(base_path_for_processed, "fetched_ok.json")
+    protein_missing_file_path = join(base_path_for_processed, "missing.json")
     pair_selected_path = join(base_path_for_processed_protein_id, "pair_selected.json")
 
     # check if we have a file containing list of processed protein id
@@ -145,6 +145,7 @@ def fetch_pdb_from_df(path: str, db_name: str) -> None:
             flag = True
 
             for id in ids:
+                id = str.strip(id)
                 if id in protein_missing:
                     print(f"{id} is in missing list. So it is not processing.")
                     flag = False
@@ -155,6 +156,7 @@ def fetch_pdb_from_df(path: str, db_name: str) -> None:
             flag = True
 
             for id in ids:
+                id = str.strip(id)
 
                 print(f"Row: {index}, Protein id: {id}")
 
@@ -176,12 +178,16 @@ def fetch_pdb_from_df(path: str, db_name: str) -> None:
                         print(f"{id} is missing. Moving {id} to missing list")
                         protein_missing[id] = id
                         flag = False
+                else:
+                    print(f"{id} is already in processed list. So not processing")
 
             if flag is True:
-                print(f"Moving pair {ids} to pair selected list.")
+                print(
+                    f"Moving pair [{str.strip(ids[0])}, {str.strip(ids[1])}] to pair selected list."
+                )
                 i = 0
                 for col_name in df.column_names:
-                    pair_selected[col_name].append(ids[i])
+                    pair_selected[col_name].append(str.strip(ids[i]))
                     i = i + 1
 
             if index % 100 == 0:
@@ -228,4 +234,32 @@ def fetch_pdb_from_df(path: str, db_name: str) -> None:
         print("Saving completed")
 
 
-fetch_pdb_from_df(join("protein_dataframes", "apid", "3702_Q3"), "apid")
+fetch_pdb_from_df(
+    join("protein_dataframes", "negatome", "non-interacting-protein"), "negatome"
+)
+
+
+# process_raw_csv_data(join("negatome", "non-interacting-protein-tab.tsv"), "negatome")
+# df = read_dataframe_from_file(join("negatome", "non-interacting-protein-tab"))
+# print(df)
+
+
+# extract_protein_id_from_df_and_save(
+#     join("negatome", "non-interacting-protein"),
+#     "negatome",
+#     "UniprotID_A",
+#     "UniprotID_B_",
+# )
+
+# df = read_dataframe_from_file(
+#     join("protein_dataframes", "negatome", "non-interacting-protein")
+# )
+
+# for _, row in df.iterrows():
+#     # print(row["UniprotID_A"])
+#     # print(row["UniprotID_B"])
+#     file, status = fetch_pdb_using_uniprot_id(row["UniprotID_B_"])
+#     print(status)
+#     file, status = fetch_pdb_using_uniprot_id(row["UniprotID_A"])
+#     print(status)
+#     break

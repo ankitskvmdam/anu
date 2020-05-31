@@ -1,6 +1,6 @@
 """Functions responsible for preparing input."""
 
-# import os
+import os
 from statistics import mean
 
 from Bio.PDB import PDBParser, Polypeptide
@@ -19,7 +19,8 @@ def build_matrix(path: str, filename: str) -> vaex.dataframe.DataFrame:
     Returns:
         vaex dataframe
     """
-    protein_matrix = [[0 for x in range(2000)] for y in range(10)]
+    PROTEIN_SEQ_MAX_LEN = 2000
+    protein_matrix = [[0 for x in range(PROTEIN_SEQ_MAX_LEN)] for y in range(10)]
     protein_structure = PDBParser().get_structure(filename, path)
     protein_model = list(protein_structure.get_models())
     protein_chains = list(protein_model[0].get_chains())
@@ -66,15 +67,16 @@ def build_matrix(path: str, filename: str) -> vaex.dataframe.DataFrame:
     # Prepare dict so it can be load to vaex dataframe
     dic = {}
 
-    for i in range(2000):
+    for i in range(PROTEIN_SEQ_MAX_LEN):
         dic[f"Seq {i}"] = [protein_matrix[x][i] for x in range(10)]
 
     df = vaex.from_dict(dic)
     return df
 
 
-# path = os.path.relpath(
-#     os.path.join("..", "..", "..", "data", "raw", "pdb",
-# "from_apid", "A0A1I9LP65.pdb")
-# )
-# build_matrix(path, "A0A1I9LP65")
+path = os.path.relpath(
+    os.path.join("..", "..", "..", "data", "raw", "pdb", "from_apid", "A0A1I9LP65.pdb")
+)
+df = build_matrix(path, "A0A1I9LP65")
+
+print(df)

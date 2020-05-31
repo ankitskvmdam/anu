@@ -2,6 +2,7 @@
     "python.formatting.provider": "black",
     "python.pythonPath": "/Volumes/HDD/packages/anaconda2/envs/anu/bin/python",
     "cSpell.words": [
-        "iterrows"
+        "iterrows",
+        "negatome"
     ]
 }

@@ -43,6 +43,9 @@ def fetch_pdb_using_uniprot_id(id: str) -> (str, int):
     """
     import requests
 
+    # Strip the id.
+    id = str.strip(id)
+
     base_url = "https://swissmodel.expasy.org/repository/uniprot/"
     format = ".pdb"
 

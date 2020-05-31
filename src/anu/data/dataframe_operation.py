@@ -6,8 +6,8 @@ from typing import Optional
 import vaex
 
 
-def convert_apid_to_dataframe(filename: str,) -> Optional[vaex.dataframe.DataFrame]:
-    """Convert the apid file to pandas dataframe.
+def convert_csv_to_dataframe(filename: str, sep: str = "\t") -> Optional[vaex.dataframe.DataFrame]:
+    """Convert the csv file to pandas dataframe.
 
     File path must be relative to data/raw
 
@@ -15,7 +15,7 @@ def convert_apid_to_dataframe(filename: str,) -> Optional[vaex.dataframe.DataFra
         filename: name of the file with extention.
 
     Returns:
-        Pandas dataframe.
+        vaex dataframe.
     """
     path = os.path.realpath(os.path.join("..", "..", "..", "data", "raw", filename))
 
