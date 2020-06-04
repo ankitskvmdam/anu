@@ -2,14 +2,48 @@
 
 import os
 from statistics import mean
+from typing import List, TypedDict
 
 from Bio.PDB import PDBParser, Polypeptide
+import pyarrow
 import vaex
 
+
 from anu.constants.amino_acid import amino_acid
+from anu.data.dataframe_operation import save_dataframe_to_file
 
 
-def build_matrix(path: str, filename: str) -> vaex.dataframe.DataFrame:
+# Dictionary keys
+col_name = [
+    "seq",
+    "x_pos",
+    "y_pos",
+    "z_pos",
+    "hydropathy",
+    "hydropathy_index",
+    "acidity_basicity",
+    "mass",
+    "isoelectric_point",
+    "charge",
+]
+
+
+class BuildMatrixDict(TypedDict):
+    """Dictionary shape for build matrix class."""
+
+    seq: List[List[int]]
+    x_pos: List[List[int]]
+    y_pos: List[List[int]]
+    z_pos: List[List[int]]
+    hydropathy: List[List[int]]
+    hydropathy_index: List[List[int]]
+    acidity_basicity: List[List[int]]
+    mass: List[List[int]]
+    isoelectric_point: List[List[int]]
+    charge: List[List[int]]
+
+
+def build_matrix(path: str, filename: str) -> BuildMatrixDict:
     """Build the input matrix for one protein.
 
     Args:
@@ -17,7 +51,7 @@ def build_matrix(path: str, filename: str) -> vaex.dataframe.DataFrame:
         filename: name of the file (without extension).
 
     Returns:
-        vaex dataframe
+        Build matrix dictionary
     """
     PROTEIN_SEQ_MAX_LEN = 2000
     protein_matrix = [[0 for x in range(PROTEIN_SEQ_MAX_LEN)] for y in range(10)]
@@ -43,9 +77,9 @@ def build_matrix(path: str, filename: str) -> vaex.dataframe.DataFrame:
                     z.append(vec.__getitem__(2))
 
                 # calculate position of residue
-                x = mean(x)
-                y = mean(y)
-                z = mean(z)
+                x = round(mean(x))
+                y = round(mean(y))
+                z = round(mean(z))
 
                 # one letter code
                 code = Polypeptide.three_to_one(residue.get_resname())
@@ -66,18 +100,86 @@ def build_matrix(path: str, filename: str) -> vaex.dataframe.DataFrame:
                 col = col + 1
 
     # Prepare dict so it can be load to vaex dataframe
-    dic = {}
+    dic: BuildMatrixDict = {
+        "seq": [[]],
+        "x_pos": [[]],
+        "y_pos": [[]],
+        "z_pos": [[]],
+        "hydropathy": [[]],
+        "hydropathy_index": [[]],
+        "acidity_basicity": [[]],
+        "mass": [[]],
+        "isoelectric_point": [[]],
+        "charge": [[]],
+    }
 
-    for i in range(PROTEIN_SEQ_MAX_LEN):
-        dic[f"Seq {i}"] = [protein_matrix[x][i] for x in range(10)]
+    for i in range(10):
+        dic[col_name[i]] = pyarrow.array(
+            [[protein_matrix[i][x] for x in range(PROTEIN_SEQ_MAX_LEN)]]
+        )
 
-    df = vaex.from_dict(dic)
-    return df
+    return dic
 
 
-path = os.path.relpath(
-    os.path.join("..", "..", "..", "data", "raw", "pdb", "P18206.pdb")
-)
-df = build_matrix(path, "P18206")
+def build_df_from_dic(
+    protein_a: BuildMatrixDict, protein_b: BuildMatrixDict
+) -> vaex.dataframe.DataFrame:
+    """Build dataframe using protein dict.
 
-print(df)
+    Args:
+        protein_a: Protein A in the form of BuildMatrixDict.
+        protein_b: Protein B in the form of BuildMatrixDict.
+
+    Returns:
+        vaex dataframe.
+    """
+    return vaex.from_arrays(
+        proteinA_seq=protein_a[col_name[0]],
+        proteinB_seq=protein_b[col_name[0]],
+        proteinA_x=protein_a[col_name[1]],
+        proteinB_x=protein_b[col_name[1]],
+        proteinA_y=protein_a[col_name[2]],
+        proteinB_y=protein_b[col_name[2]],
+        proteinA_z=protein_a[col_name[3]],
+        proteinB_z=protein_b[col_name[3]],
+        proteinA_hydropathy=protein_a[col_name[4]],
+        proteinB_hydropathy=protein_b[col_name[4]],
+        proteinA_hydropathy_index=protein_a[col_name[5]],
+        proteinB_hydropathy_index=protein_b[col_name[5]],
+        proteinA_acidity_basicity=protein_a[col_name[6]],
+        proteinB_acidity_basicity=protein_b[col_name[6]],
+        proteinA_mass=protein_a[col_name[7]],
+        proteinB_mass=protein_b[col_name[7]],
+        proteinA_isoelectric_point=protein_a[col_name[8]],
+        proteinB_isoelectric_point=protein_b[col_name[8]],
+        proteinA_charge=protein_a[col_name[9]],
+        proteinB_charge=protein_b[col_name[9]],
+    )
+
+
+# print("Loading first file")
+
+# path = os.path.relpath(
+#     os.path.join("..", "..", "..", "data", "raw", "pdb", "A0A178U6H4.pdb")
+# )
+# protein_a = build_matrix(path, "A0A178U6H4")
+
+# print("Loading second file")
+
+# path = os.path.relpath(
+#     os.path.join("..", "..", "..", "data", "raw", "pdb", "Q9AT76.pdb")
+# )
+# protein_b = build_matrix(path, "Q9AT76")
+# final_df = build_df_from_dic(protein_a, protein_b)
+
+# print("Loading complete")
+
+
+# print("saving to file")
+
+# path = os.path.join("test", "test_1")
+# save_dataframe_to_file(final_df, path)
+
+# print(final_df)
+
+# print("Completed successfully")
