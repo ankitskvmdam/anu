@@ -2,7 +2,17 @@
     "python.formatting.provider": "black",
     "python.pythonPath": "/Volumes/HDD/packages/anaconda2/envs/anu/bin/python",
     "cSpell.words": [
+        "conv",
+        "conv net",
+        "hstack",
+        "inplace",
         "iterrows",
-        "negatome"
-    ]
+        "negatome",
+        "net",
+        "numpy",
+        "optim",
+        "tqdm",
+        "vstack"
+    ],
+    "python.linting.enabled": true
 }
