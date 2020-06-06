@@ -21,14 +21,17 @@ importlib-metadata = {version = "^1.5.0", python = "<3.8"}
 torch = "^1.5.0"
 pypdb = "^1.300"
 biopython = "^1.76"
-vaex-core = "^1.5.0"
+vaex-core = "^2.0.2"
 nglview = "^2.7.5"
-vaex-arrow = "^0.4.2"
+vaex-arrow = {git= "https://github.com/ankitskvmdam/vaex-arrow"}
 matplotlib = "^3.2.1"
 sacred = "^0.8.1"
 hiplot = "^0.1.9"
 nbformat = "^5.0.6"
 pymex-lukasz99 = {git = "https://github.com/ankitskvmdam/pymex"}
+tqdm = "^4.46.1"
+tensorboard = "^2.2.2"
+logzero = "^1.5.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.3.2"
