@@ -1,12 +1,14 @@
 """modules to realted to data frame operations."""
 
 import os
-from typing import Optional
+from typing import Union
 
 import vaex
 
 
-def convert_csv_to_dataframe(filename: str, sep: str = "\t") -> Optional[vaex.dataframe.DataFrame]:
+def convert_csv_to_dataframe(
+    filename: str, sep: str = "\t"
+) -> Union[vaex.dataframe.DataFrame, None]:
     """Convert the csv file to pandas dataframe.
 
     File path must be relative to data/raw
@@ -21,6 +23,7 @@ def convert_csv_to_dataframe(filename: str, sep: str = "\t") -> Optional[vaex.da
 
     if os.path.exists(path):
         return vaex.read_csv(filepath_or_buffer=path, sep="\t", lineterminator="\n")
+    return None
 
 
 def save_dataframe_to_file(df: vaex.dataframe.DataFrame, filename: str) -> bool:

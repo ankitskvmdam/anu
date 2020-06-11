@@ -6,11 +6,15 @@ from typing import List, TypedDict
 
 from Bio.PDB import PDBParser, Polypeptide
 import pyarrow
+
 import vaex
 
 
 from anu.constants.amino_acid import amino_acid
-from anu.data.dataframe_operation import save_dataframe_to_file
+from anu.data.dataframe_operation import (
+    save_dataframe_to_file,
+    read_dataframe_from_file,
+)
 
 
 # Dictionary keys
@@ -122,7 +126,7 @@ def build_matrix(path: str, filename: str) -> BuildMatrixDict:
 
 
 def build_df_from_dic(
-    protein_a: BuildMatrixDict, protein_b: BuildMatrixDict
+    protein_a: BuildMatrixDict, protein_b: BuildMatrixDict, interaction_type: bool
 ) -> vaex.dataframe.DataFrame:
     """Build dataframe using protein dict.
 
@@ -133,6 +137,10 @@ def build_df_from_dic(
     Returns:
         vaex dataframe.
     """
+    interaction_array = (
+        pyarrow.array([[1, 0]]) if interaction_type else pyarrow.array([[0, 1]])
+    )
+
     return vaex.from_arrays(
         proteinA_seq=protein_a[col_name[0]],
         proteinB_seq=protein_b[col_name[0]],
@@ -154,26 +162,32 @@ def build_df_from_dic(
         proteinB_isoelectric_point=protein_b[col_name[8]],
         proteinA_charge=protein_a[col_name[9]],
         proteinB_charge=protein_b[col_name[9]],
+        interaction=interaction_array,
     )
 
 
 # print("Loading first file")
 
 # path = os.path.relpath(
-#     os.path.join("..", "..", "..", "data", "raw", "pdb", "A0A178U6H4.pdb")
+#     os.path.abspath(
+#         os.path.join("..", "..", "..", "data", "raw", "pdb", "A0A178U6H4.pdb")
+#     )
 # )
 # protein_a = build_matrix(path, "A0A178U6H4")
 
 # print("Loading second file")
 
 # path = os.path.relpath(
-#     os.path.join("..", "..", "..", "data", "raw", "pdb", "Q9AT76.pdb")
+#     os.path.abspath(os.path.join("..", "..", "..", "data", "raw", "pdb", "Q9AT76.pdb"))
 # )
 # protein_b = build_matrix(path, "Q9AT76")
-# final_df = build_df_from_dic(protein_a, protein_b)
+
+# final_df = build_df_from_dic(protein_a, protein_b, True)
+# new_df = build_df_from_dic(protein_b, protein_a, False)
 
 # print("Loading complete")
 
+# final_df = vaex.concat([final_df, new_df, final_df])
 
 # print("saving to file")
 
@@ -183,3 +197,7 @@ def build_df_from_dic(
 # print(final_df)
 
 # print("Completed successfully")
+
+df = read_dataframe_from_file("test/test_1")
+
+print(df)
