@@ -15,7 +15,9 @@ class CNNTrainerConfig(TypedDict):
 
 def get_default_cnn_trainer_config() -> CNNTrainerConfig:
     """Return default cnn trainer config."""
-    root = os.path.realpath(os.path.abspath(os.path.join(__file__, "..", "..", "..")))
+    root = os.path.realpath(
+        os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", ".."))
+    )
     logdir_path = os.path.join(root, "logs")
     model_savedir_path = os.path.join(root, "pre_trained_models")
 
