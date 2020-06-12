@@ -47,6 +47,9 @@ nox
 
 ## Using
 In order to use this tool. First few steps are similar to developing step.
+### Requirement
+* git
+* python 3.8 or above
 
 ### Clone this repository
 
