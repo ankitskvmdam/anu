@@ -124,7 +124,7 @@ anu data fetch-pdb-file --negatome
 anu data fetch-pdb-file
 ```
 
-If the pdb file is already downloaded then it is not downloading again. Downloading of pdb files is sync between both datasets.
+If the pdb file is already downloaded it will not be downloaded again. Downloading of pdb files is sync between both datasets.
 
 #### Step 4: Prepare input for train
 This is also a time taking process.
