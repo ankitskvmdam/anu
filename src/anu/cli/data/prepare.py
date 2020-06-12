@@ -4,23 +4,25 @@ import os
 
 import click
 
+from anu.data.data_operations import extract_proteins_id_from_dataframe
 from anu.data.dataframe_operation import (
     convert_csv_to_dataframe,
     save_dataframe_to_file,
 )
-from anu.data.data_operations import extract_proteins_id_from_dataframe
 from anu.data.pipelines.prepare_input import build_input_from_json
+
 
 @click.command()
 def prepare_dataframes() -> None:
     """Prepare the dataframes from raw data.
 
     This function first prepare the dataframe using pickle dataset
-    the using negatome database.
+    then using negatome database.
 
     Steps:
         1. First prepare raw vaex dataframe for pickle dataset
-        2. Filter column of raw vaex dataframe and keep on the column containing protein id
+        2. Filter column of raw vaex dataframe and keep on the
+        column containing protein id
         3. Do above two process for negatome dataset.
     """
     PICKLE_PROTEIN_A_COLUMN = "InteractorA"
@@ -59,12 +61,12 @@ def prepare_dataframes() -> None:
     NEGATOME_SAVE_PATH = os.path.join("negatome", "non-interacting-protein")
 
     status = save_dataframe_to_file(pickle_df, PICKLE_SAVE_PATH)
-    if status == False:
+    if status is False:
         click.secho("Unable to save dataframes", fg="red")
         exit()
 
     status = save_dataframe_to_file(negatome_df, NEGATOME_SAVE_PATH)
-    if status == False:
+    if status is False:
         click.secho("Unable to save dataframes", fg="red")
         exit()
 
@@ -76,17 +78,19 @@ def prepare_dataframes() -> None:
     "--interacting",
     "-i",
     is_flag=True,
-    help="",
+    help="Prepare interacting input dataframe for training",
 )
 @click.option(
     "--non-interacting",
     "-n",
     is_flag=True,
-    help="Download pdb files for present in negatome dataset",
+    help="Prepare non-interacting input dataframe for training",
 )
-def prepare_input(interacting: bool, non_interacting: bool):
-    """Prepare input."""
-    NEGATOME_PATH = os.path.join("negatome", "non-interacting-protein", "pair_selected.json")
+def prepare_input(interacting: bool, non_interacting: bool) -> None:
+    """Prepare input dataframe for training."""
+    NEGATOME_PATH = os.path.join(
+        "negatome", "non-interacting-protein", "pair_selected.json"
+    )
     PICKLE_PATH = os.path.join("pickle", "interacting-protein", "pair_selected.json")
 
     if interacting:
