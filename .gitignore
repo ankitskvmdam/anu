@@ -11,4 +11,5 @@ __pycache__/
 */.ipynb_checkpoints/*
 .vscode
 .DS_Store
-logs
+**/logs/*
+**/pre_trained_models/*
