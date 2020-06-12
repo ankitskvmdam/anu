@@ -150,3 +150,10 @@ anu data prepare-input --non-interacting
 # Prepare both input dataframes
 anu data prepare-input
 ```
+
+#### Step 5: Train model
+Currently cnn model is only available.
+
+```bash
+anu train cnn
+```
