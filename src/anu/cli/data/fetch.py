@@ -56,7 +56,7 @@ def download_from_zenodo(id: str, path: str, filename: str) -> None:
 @click.command()
 def fetch_databases() -> None:
     """Fetch data from all database.
-    
+
     Currently only fetch data from pickle 2.5 (interacting protein database) and
     negatome (non interacting protein database). We have uploaded the databases to
     zenodo. We use the record id to retrieve the databases.

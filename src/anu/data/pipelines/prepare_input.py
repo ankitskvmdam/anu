@@ -178,7 +178,7 @@ def save_build_df(
     list_of_logs: List[tqdm.tqdm], prev_path: str, save_path: str
 ) -> None:
     """Saving progress of build input from json.
-    
+
     Args:
         list_of_logs: list of tqdm logs.
         prev_path: path of last saved df.
@@ -201,7 +201,7 @@ def build_input_from_json_intermediate_step(
     interaction_type: bool,
 ) -> vaex.dataframe:
     """Intermediate step for build input from json.
-    
+
     Args:
         protein_a: first protein id.
         protein_b: second protein id.
@@ -226,7 +226,7 @@ def build_input_from_json_intermediate_step(
 
 def get_proteins_list_from_json(file_path: str) -> Tuple[List[str], List[str]]:
     """Get proteins list from json.
-    
+
     Args:
         file_path: path of the json file.
 

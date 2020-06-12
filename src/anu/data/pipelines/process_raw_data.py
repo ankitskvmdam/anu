@@ -261,4 +261,3 @@ def fetch_pdb_from_df(path: str, db_name: str) -> None:
 
     except OSError:
         raise OSError
-
