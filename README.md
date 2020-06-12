@@ -108,8 +108,7 @@ anu data prepare-dataframes -- help
 
 #### Step 3: Fetch PDB files
 Now we have to fetch the PDB file.
-> Since there is almost 30,000 protein in pickle database and around 10,000 in negatome database. It is hard to fetch them all at once. The fetching process is resumable. And for testing only 300 to 400 file from each dataset is enough. So once you have downloaded enough file you can press ctrl+c to exit.
-
+> Since there are almost 30,000 proteins in pickle database and around 10,000 in negative database. It is hard to fetch them all at once. The fetching process is resumable. And for testing only 300 to 400 files for each dataset is enough. So once you have downloaded enough file you can press ctrl+c to exit.
 ```bash
 # For help/more information
 anu data fetch-pdb-files --help
