@@ -9,7 +9,7 @@ from anu.data.dataframe_operation import (
     save_dataframe_to_file,
 )
 from anu.data.data_operations import extract_proteins_id_from_dataframe
-
+from anu.data.pipelines.prepare_input import build_input_from_json
 
 @click.command()
 def prepare_dataframes() -> None:
@@ -69,3 +69,39 @@ def prepare_dataframes() -> None:
         exit()
 
     click.secho("Completed successfully.", fg="green")
+
+
+@click.command()
+@click.option(
+    "--interacting",
+    "-i",
+    is_flag=True,
+    help="",
+)
+@click.option(
+    "--non-interacting",
+    "-n",
+    is_flag=True,
+    help="Download pdb files for present in negatome dataset",
+)
+def prepare_input(interacting: bool, non_interacting: bool):
+    """Prepare input."""
+    NEGATOME_PATH = os.path.join("negatome", "non-interacting-protein", "pair_selected.json")
+    PICKLE_PATH = os.path.join("pickle", "interacting-protein", "pair_selected.json")
+
+    if interacting:
+        click.secho("Building interacting protein input dataframe", fg="blue")
+        build_input_from_json(PICKLE_PATH, "pickle", "pickle_input_df", True)
+        click.secho("Process completed successfully", fg="green")
+
+    elif non_interacting:
+        click.secho("Building non-interacting protein input dataframe", fg="blue")
+        build_input_from_json(NEGATOME_PATH, "negatome", "negatome_input_df", False)
+        click.secho("Process completed successfully", fg="green")
+
+    else:
+        click.secho("First, building interacting protein input dataframe", fg="blue")
+        build_input_from_json(PICKLE_PATH, "pickle", "pickle_input_df", True)
+        click.secho("Now, building non-interacting protein input dataframe", fg="blue")
+        build_input_from_json(NEGATOME_PATH, "negatome", "negatome_input_df", False)
+        click.secho("Process completed successfully", fg="green")
