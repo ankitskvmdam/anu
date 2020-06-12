@@ -6,6 +6,9 @@ Predicting interactions among protein, DNA and RNA.
 
 ## Getting Started
 
+### Requirement
+* git
+* python 3.8 or above
 
 ## Developing
 
@@ -33,6 +36,8 @@ or
 pipx install poetry
 ```
 
+For more information about poetry visit [poetry docs](https://python-poetry.org/docs/)
+
 ### Install nox
 
 ```bash
@@ -45,11 +50,10 @@ Run tests, lint check, type check, doc tests, coverage
 nox
 ```
 
+For more information visit [nox tutorial](https://nox.thea.codes/en/stable/tutorial.html)
+
 ## Using
 In order to use this tool. First few steps are similar to developing step.
-### Requirement
-* git
-* python 3.8 or above
 
 ### Clone this repository
 
