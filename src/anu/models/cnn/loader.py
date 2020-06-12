@@ -9,10 +9,12 @@ import vaex
 class InteractionClassificationDataset(Dataset):
     """Interaction classification dataset."""
 
-    def __init__(self: "InteractionClassificationDataset", path: str) -> None:
+    def __init__(
+        self: "InteractionClassificationDataset", df: vaex.dataframe.DataFrame
+    ) -> None:
         """Initialize dataset."""
         try:
-            self.df = vaex.open(path)
+            self.df = df
         except BaseException:
             raise "Error Initializing dataset"
 
