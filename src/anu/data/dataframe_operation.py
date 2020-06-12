@@ -107,3 +107,20 @@ def read_dataframes_from_file(path_list: str) -> Optional[vaex.dataframe.DataFra
         file_path_list.append(file_path)
 
     return vaex.open_many(file_path_list)
+
+
+def shuffle_dataframe(
+    df: vaex.dataframe.DataFrame,
+    frac: float = 1.0,
+    replace: bool = False,
+    random_state: int = 32,
+) -> vaex.dataframe.DataFrame:
+    """Shuffle the given dataframe.
+
+    Args:
+        df: vaex dataframe which has to be shuffled.
+        frac: fractional number of takes to take
+        replace: If true, a row may be drawn multiple times
+        random_state: seed or RandomState for reproducibility
+    """
+    return df.sample(frac=frac, replace=replace, random_state=random_state)
