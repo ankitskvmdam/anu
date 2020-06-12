@@ -71,8 +71,12 @@ class InteractionClassificationDataset(Dataset):
                 charge,
             ]
         )
+        interaction_type = np.array(self.df[idx][20])
 
-        interaction_input = torch.from_numpy(features_matrix).view((1, 10, 4000))
-        interaction_label = torch.from_numpy(self.df[idx][20])
+        features_matrix.setflags(write=True)
+        interaction_type.setflags(write=True)
+
+        interaction_input = torch.from_numpy(features_matrix).view((1, 10, 8000))
+        interaction_label = torch.from_numpy(interaction_type)
 
         return interaction_label, interaction_input
