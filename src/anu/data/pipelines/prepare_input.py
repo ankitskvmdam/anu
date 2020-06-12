@@ -11,8 +11,8 @@ import vaex
 
 from anu.constants.amino_acid import amino_acid
 from anu.data.dataframe_operation import (
-    save_dataframe_to_file,
     read_dataframes_from_file,
+    save_dataframe_to_file,
 )
 
 
@@ -108,7 +108,7 @@ def build_matrix(path: str, filename: str, truncate_log: tqdm.tqdm) -> BuildMatr
 
     except IndexError:
         truncate_log.set_description(
-            f"Protein {filename} is truncated. Because its size exceeds {PROTEIN_SEQ_MAX_LEN}"
+            f"Protein {filename} is truncated. Max allowed size {PROTEIN_SEQ_MAX_LEN}"
         )
 
     # Prepare dict so it can be load to vaex dataframe
@@ -141,6 +141,7 @@ def build_df_from_dic(
     Args:
         protein_a: Protein A in the form of BuildMatrixDict.
         protein_b: Protein B in the form of BuildMatrixDict.
+        interaction_type: boolean, true if protein interacts.
 
     Returns:
         vaex dataframe.
@@ -184,11 +185,10 @@ def save_build_df(
         prev_path: path of last saved df.
         save_path: path to save new df.
     """
-
     for logger in list_of_logs:
         logger.close()
 
-    df = read_dataframes_from_file(prev_path)
+    df = read_dataframes_from_file([prev_path])
     save_dataframe_to_file(df, save_path)
 
 
@@ -257,8 +257,10 @@ def build_input_from_json(
         path: path of json file.
         db_name: name of the database.
         filename: name of the output file containing df.
+        interaction_type: boolean, true if protein interacts.
     """
-    import os, warnings
+    import os
+    import warnings
 
     warnings.simplefilter("ignore")
     BASE_DATA_DIR = os.path.realpath(
@@ -278,23 +280,21 @@ def build_input_from_json(
     truncate_log = tqdm.tqdm(total=0, position=2, bar_format="{desc}", leave=False)
 
     loggers = [current_log, truncate_log]
-    input_path = os.path.join("input", db_name, filename)
 
     prev_df_path = os.path.join("input", db_name, f"{filename}_prev_df")
     current_df_path = os.path.join("input", db_name, f"{filename}_cur_df")
     save_df_path = os.path.join("input", db_name, filename)
 
     row_already_processed_path = os.path.join(
-        BASE_DATA_DIR, "input", db_name, f"{filename}_processed_row.txt"
+        BASE_DATA_DIR, "processed", "input", db_name, f"{filename}_processed_row.txt"
     )
+
     start = 0
-
-    if os.path.exists(row_already_processed_path):
-        file_pointer = open(row_already_processed_path, "w")
-        start = int(file_pointer.read())
-
-    else:
-        file_pointer = open(row_already_processed_path, "w")
+    try:
+        with open(row_already_processed_path) as fp:
+            start = int(fp.read())
+    except IOError:
+        start = 0
 
     try:
         progress_log = tqdm.tqdm(total=total, position=0, leave=False)
@@ -312,27 +312,29 @@ def build_input_from_json(
         save_dataframe_to_file(df, prev_df_path)
 
         for i in range(start + 1, total):
-            df = build_input_from_json_intermediate_step(
-                protein_list_a[i],
-                protein_list_b[i],
-                pdb_file_path,
-                current_log,
-                truncate_log,
-                interaction_type,
-            )
+            try:
+                df = build_input_from_json_intermediate_step(
+                    protein_list_a[i],
+                    protein_list_b[i],
+                    pdb_file_path,
+                    current_log,
+                    truncate_log,
+                    interaction_type,
+                )
 
-            save_dataframe_to_file(df, current_df_path)
-            df = vaex.open_many([prev_df_path, current_df_path])
-            save_dataframe_to_file(df, prev_df_path)
-            progress_log.update(1)
+                save_dataframe_to_file(df, current_df_path)
+                df = read_dataframes_from_file([prev_df_path, current_df_path])
+                save_dataframe_to_file(df, prev_df_path)
+
+                with open(row_already_processed_path, "w") as fp:
+                    fp.write(str(i))
+
+                progress_log.update(1)
+            except KeyboardInterrupt:
+                break
 
         print("Completed...")
         save_build_df(loggers, prev_df_path, save_df_path)
 
     except KeyboardInterrupt:
         save_build_df(loggers, prev_df_path, save_df_path)
-
-
-build_input_from_json(
-    "pickle/interacting-protein/pair_selected.json", "pickle", "pickle_input_df", True
-)
