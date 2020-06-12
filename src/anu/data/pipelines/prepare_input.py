@@ -176,20 +176,33 @@ def build_df_from_dic(
 
 
 def save_build_df(
-    list_of_logs: List[tqdm.tqdm], prev_path: str, save_path: str
+    list_of_logs: List[tqdm.tqdm], df_base_path: str, save_path: str, index_path: str
 ) -> None:
     """Saving progress of build input from json.
 
     Args:
         list_of_logs: list of tqdm logs.
-        prev_path: path of last saved df.
+        df_base_path: path of last saved df.
         save_path: path to save new df.
+        index_path: path of the file containing index information
     """
     for logger in list_of_logs:
+        logger.clear()
         logger.close()
 
-    df = read_dataframes_from_file([prev_path])
-    save_dataframe_to_file(df, save_path)
+    length = 0
+    with open(index_path) as fp:
+        length = int(fp.read())
+
+    if length != 0:
+        expected_time = (length // 300) + 1
+        print("Please don't press ctrl+c...")
+        print("Trying to build and save dataframe...")
+        print(f"On average machine, this will take around {expected_time}min")
+        df = read_dataframes_from_file(
+            [os.path.join(df_base_path, str(x)) for x in range(length + 1)]
+        )
+        save_dataframe_to_file(df, save_path)
 
 
 def build_input_from_json_intermediate_step(
@@ -281,8 +294,7 @@ def build_input_from_json(
 
     loggers = [current_log, truncate_log]
 
-    prev_df_path = os.path.join("input", db_name, f"{filename}_prev_df")
-    current_df_path = os.path.join("input", db_name, f"{filename}_cur_df")
+    df_chunk_base_path = os.path.join("input", db_name, "df_chunks")
     save_df_path = os.path.join("input", db_name, filename)
 
     row_already_processed_path = os.path.join(
@@ -297,21 +309,11 @@ def build_input_from_json(
         start = 0
 
     try:
-        progress_log = tqdm.tqdm(total=total, position=0, leave=False)
+        progress_log = tqdm.tqdm(total=total, position=0, leave=False, unit="pairs")
         progress_log.update(start)
         loggers.append(progress_log)
-        df = build_input_from_json_intermediate_step(
-            protein_list_a[start],
-            protein_list_b[start],
-            pdb_file_path,
-            current_log,
-            truncate_log,
-            interaction_type,
-        )
 
-        save_dataframe_to_file(df, prev_df_path)
-
-        for i in range(start + 1, total):
+        for i in range(start, total):
             try:
                 df = build_input_from_json_intermediate_step(
                     protein_list_a[i],
@@ -322,9 +324,7 @@ def build_input_from_json(
                     interaction_type,
                 )
 
-                save_dataframe_to_file(df, current_df_path)
-                df = read_dataframes_from_file([prev_df_path, current_df_path])
-                save_dataframe_to_file(df, prev_df_path)
+                save_dataframe_to_file(df, os.path.join(df_chunk_base_path, str(i)))
 
                 with open(row_already_processed_path, "w") as fp:
                     fp.write(str(i))
@@ -334,7 +334,11 @@ def build_input_from_json(
                 break
 
         print("Completed...")
-        save_build_df(loggers, prev_df_path, save_df_path)
+        save_build_df(
+            loggers, df_chunk_base_path, save_df_path, row_already_processed_path
+        )
 
     except KeyboardInterrupt:
-        save_build_df(loggers, prev_df_path, save_df_path)
+        save_build_df(
+            loggers, df_chunk_base_path, save_df_path, row_already_processed_path
+        )
