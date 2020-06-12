@@ -1,9 +1,22 @@
 """modules to realted to data frame operations."""
 
 import os
-from typing import Union
+from typing import Union, Optional
 
 import vaex
+
+
+def get_base_data_path() -> str:
+    """Compute the base data path.
+
+    Returns:
+        Return the base data path.
+    """
+    return os.path.realpath(
+        os.path.abspath(
+            os.path.join(os.path.dirname(__file__), "..", "..", "..", "data")
+        )
+    )
 
 
 def convert_csv_to_dataframe(
@@ -19,11 +32,11 @@ def convert_csv_to_dataframe(
     Returns:
         vaex dataframe.
     """
-    path = os.path.realpath(os.path.join("..", "..", "..", "data", "raw", filename))
-
+    path = os.path.join(get_base_data_path(), "raw", filename)
     if os.path.exists(path):
         return vaex.read_csv(filepath_or_buffer=path, sep="\t", lineterminator="\n")
-    return None
+
+    raise OSError
 
 
 def save_dataframe_to_file(df: vaex.dataframe.DataFrame, filename: str) -> bool:
@@ -38,9 +51,7 @@ def save_dataframe_to_file(df: vaex.dataframe.DataFrame, filename: str) -> bool:
     """
     import pathlib
 
-    path_to_processed_data = os.path.realpath(
-        os.path.join("..", "..", "..", "data", "processed")
-    )
+    path_to_processed_data = os.path.join(get_base_data_path(), "processed")
 
     if os.path.exists(path_to_processed_data):
         path = os.path.realpath(os.path.join(path_to_processed_data, filename))
@@ -56,7 +67,7 @@ def save_dataframe_to_file(df: vaex.dataframe.DataFrame, filename: str) -> bool:
     return False
 
 
-def read_dataframe_from_file(path: str) -> vaex.dataframe.DataFrame:
+def read_dataframe_from_file(path: str) -> Optional[vaex.dataframe.DataFrame]:
     """Only read dataframe present in data/processed.
 
     Args:
@@ -65,8 +76,34 @@ def read_dataframe_from_file(path: str) -> vaex.dataframe.DataFrame:
     Returns:
         vaex dataframe.
     """
-    path_to_processed_data = os.path.realpath(
-        os.path.join("..", "..", "..", "data", "processed", path)
-    )
+    path_to_processed_data = os.path.join(get_base_data_path(), "processed", path)
+    file_path = f"{path_to_processed_data}.arrow"
 
-    return vaex.open(f"{path_to_processed_data}.arrow")
+    if not os.path.exists(file_path):
+        raise OSError
+
+    else:
+        return vaex.open(file_path)
+
+
+def read_dataframes_from_file(path_list: str) -> Optional[vaex.dataframe.DataFrame]:
+    """Only read dataframe present in data/processed.
+
+    Args:
+        path_list: list of path relative to data/processed.
+
+    Returns:
+        vaex dataframe.
+    """
+
+    base_path = os.path.join(get_base_data_path(), "processed")
+
+    file_path_list: List[str] = []
+
+    for path in path_list:
+        file_path = os.path.join(base_path, f"{path}.arrow")
+        if not os.path.exists(file_path):
+            raise OSError
+        file_path_list.append(file_path)
+
+    return vaex.open_many(file_path_list)

@@ -4,7 +4,7 @@ import click
 
 from .. import __version__
 
-from anu.cli.data.fetch import data
+from anu.cli.data import data
 
 
 @click.group()

@@ -2,18 +2,17 @@
 
 import os
 from statistics import mean
-from typing import List, TypedDict
+from typing import List, Tuple, TypedDict
 
 from Bio.PDB import PDBParser, Polypeptide
 import pyarrow
-
+import tqdm
 import vaex
-
 
 from anu.constants.amino_acid import amino_acid
 from anu.data.dataframe_operation import (
     save_dataframe_to_file,
-    read_dataframe_from_file,
+    read_dataframes_from_file,
 )
 
 
@@ -47,61 +46,70 @@ class BuildMatrixDict(TypedDict):
     charge: List[List[int]]
 
 
-def build_matrix(path: str, filename: str) -> BuildMatrixDict:
+def build_matrix(path: str, filename: str, truncate_log: tqdm.tqdm) -> BuildMatrixDict:
     """Build the input matrix for one protein.
 
     Args:
         path: path of the pdb file.
         filename: name of the file (without extension).
+        truncate_log: tqdm logger
 
     Returns:
         Build matrix dictionary
     """
-    PROTEIN_SEQ_MAX_LEN = 2000
+    PROTEIN_SEQ_MAX_LEN = 4000
     protein_matrix = [[0 for x in range(PROTEIN_SEQ_MAX_LEN)] for y in range(10)]
     protein_structure = PDBParser().get_structure(filename, path)
     protein_model = list(protein_structure.get_models())
     protein_chains = list(protein_model[0].get_chains())
 
     col = 0
-    for chain in protein_chains:
-        protein_residues = list(chain.get_residues())
 
-        for residue in protein_residues:
-            if Polypeptide.is_aa(residue.get_resname()):
-                atoms = list(residue.get_atoms())
-                x = []
-                y = []
-                z = []
+    try:
+        for chain in protein_chains:
+            protein_residues = list(chain.get_residues())
 
-                for atom in atoms:
-                    vec = atom.get_vector()
-                    x.append(vec.__getitem__(0))
-                    y.append(vec.__getitem__(1))
-                    z.append(vec.__getitem__(2))
+            for residue in protein_residues:
+                if Polypeptide.is_aa(residue.get_resname(), standard=True):
+                    atoms = list(residue.get_atoms())
+                    x = []
+                    y = []
+                    z = []
 
-                # calculate position of residue
-                x = round(mean(x))
-                y = round(mean(y))
-                z = round(mean(z))
+                    for atom in atoms:
+                        vec = atom.get_vector()
+                        x.append(vec.__getitem__(0))
+                        y.append(vec.__getitem__(1))
+                        z.append(vec.__getitem__(2))
 
-                # one letter code
-                code = Polypeptide.three_to_one(residue.get_resname())
+                    # calculate position of residue
+                    x = round(mean(x))
+                    y = round(mean(y))
+                    z = round(mean(z))
 
-                aa = amino_acid[code]
+                    # one letter code
+                    code = Polypeptide.three_to_one(residue.get_resname())
 
-                protein_matrix[0][col] = aa["code"]
-                protein_matrix[1][col] = x
-                protein_matrix[2][col] = y
-                protein_matrix[3][col] = z
-                protein_matrix[4][col] = aa["hydropathy"]
-                protein_matrix[5][col] = aa["hydropathy_index"]
-                protein_matrix[6][col] = aa["acidity_basicity"]
-                protein_matrix[7][col] = aa["mass"]
-                protein_matrix[8][col] = aa["isoelectric_point"]
-                protein_matrix[9][col] = aa["charge"]
+                    aa = amino_acid[code]
+                    protein_matrix[0][col] = aa["code"]
+                    protein_matrix[1][col] = x
+                    protein_matrix[2][col] = y
+                    protein_matrix[3][col] = z
+                    protein_matrix[4][col] = aa["hydropathy"]
+                    protein_matrix[5][col] = aa["hydropathy_index"]
+                    protein_matrix[6][col] = aa["acidity_basicity"]
+                    protein_matrix[7][col] = aa["mass"]
+                    protein_matrix[8][col] = aa["isoelectric_point"]
+                    protein_matrix[9][col] = aa["charge"]
 
+                # Even if the current residue is not amino acid we increase the col.
+                # 0 is save at this position if it is not an amino acid.
                 col = col + 1
+
+    except IndexError:
+        truncate_log.set_description(
+            f"Protein {filename} is truncated. Because its size exceeds {PROTEIN_SEQ_MAX_LEN}"
+        )
 
     # Prepare dict so it can be load to vaex dataframe
     dic: BuildMatrixDict = {
@@ -166,38 +174,165 @@ def build_df_from_dic(
     )
 
 
-# print("Loading first file")
+def save_build_df(
+    list_of_logs: List[tqdm.tqdm], prev_path: str, save_path: str
+) -> None:
+    """Saving progress of build input from json.
+    
+    Args:
+        list_of_logs: list of tqdm logs.
+        prev_path: path of last saved df.
+        save_path: path to save new df.
+    """
 
-# path = os.path.relpath(
-#     os.path.abspath(
-#         os.path.join("..", "..", "..", "data", "raw", "pdb", "A0A178U6H4.pdb")
-#     )
-# )
-# protein_a = build_matrix(path, "A0A178U6H4")
+    for logger in list_of_logs:
+        logger.close()
 
-# print("Loading second file")
+    df = read_dataframes_from_file(prev_path)
+    save_dataframe_to_file(df, save_path)
 
-# path = os.path.relpath(
-#     os.path.abspath(os.path.join("..", "..", "..", "data", "raw", "pdb", "Q9AT76.pdb"))
-# )
-# protein_b = build_matrix(path, "Q9AT76")
 
-# final_df = build_df_from_dic(protein_a, protein_b, True)
-# new_df = build_df_from_dic(protein_b, protein_a, False)
+def build_input_from_json_intermediate_step(
+    protein_a: str,
+    protein_b: str,
+    pdb_file_path: str,
+    current_log: tqdm.tqdm,
+    truncate_log: tqdm.tqdm,
+    interaction_type: bool,
+) -> vaex.dataframe:
+    """Intermediate step for build input from json.
+    
+    Args:
+        protein_a: first protein id.
+        protein_b: second protein id.
+        pdb_file_path: root location of pdb files.
+        current_log: tqdm logger for current status.
+        truncate_log: tqdm logger for truncate status.
+        interaction_type: interaction status of both protein
 
-# print("Loading complete")
+    Returns:
+        vaex dataframe.
+    """
+    current_log.set_description(f"Processing  [{protein_a}, {protein_b}]")
+    a = build_matrix(
+        os.path.join(pdb_file_path, f"{protein_a}.pdb"), protein_a, truncate_log
+    )
+    b = build_matrix(
+        os.path.join(pdb_file_path, f"{protein_b}.pdb"), protein_b, truncate_log
+    )
 
-# final_df = vaex.concat([final_df, new_df, final_df])
+    return build_df_from_dic(a, b, interaction_type)
 
-# print("saving to file")
 
-# path = os.path.join("test", "test_1")
-# save_dataframe_to_file(final_df, path)
+def get_proteins_list_from_json(file_path: str) -> Tuple[List[str], List[str]]:
+    """Get proteins list from json.
+    
+    Args:
+        file_path: path of the json file.
 
-# print(final_df)
+    Returns:
+        Tuple of protein list.
+    """
+    import json
 
-# print("Completed successfully")
+    protein_json = {}
 
-df = read_dataframe_from_file("test/test_1")
+    with open(file_path) as fp:
+        protein_json = json.load(fp)
 
-print(df)
+    protein_list = []
+
+    for _, value in protein_json.items():
+        protein_list.append(value)
+
+    return protein_list[0], protein_list[1]
+
+
+def build_input_from_json(
+    path: str, db_name: str, filename: str, interaction_type: bool
+) -> None:
+    """Build input from json file.
+
+    Args:
+        path: path of json file.
+        db_name: name of the database.
+        filename: name of the output file containing df.
+    """
+    import os, warnings
+
+    warnings.simplefilter("ignore")
+    BASE_DATA_DIR = os.path.realpath(
+        os.path.abspath(
+            os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", "data")
+        )
+    )
+
+    file_path = os.path.join(BASE_DATA_DIR, "processed", "protein_id", path)
+    pdb_file_path = os.path.join(BASE_DATA_DIR, "raw", "pdb")
+
+    protein_list_a, protein_list_b = get_proteins_list_from_json(file_path)
+
+    total = min(len(protein_list_a), len(protein_list_b))
+
+    current_log = tqdm.tqdm(total=0, position=1, bar_format="{desc}", leave=False)
+    truncate_log = tqdm.tqdm(total=0, position=2, bar_format="{desc}", leave=False)
+
+    loggers = [current_log, truncate_log]
+    input_path = os.path.join("input", db_name, filename)
+
+    prev_df_path = os.path.join("input", db_name, f"{filename}_prev_df")
+    current_df_path = os.path.join("input", db_name, f"{filename}_cur_df")
+    save_df_path = os.path.join("input", db_name, filename)
+
+    row_already_processed_path = os.path.join(
+        BASE_DATA_DIR, "input", db_name, f"{filename}_processed_row.txt"
+    )
+    start = 0
+
+    if os.path.exists(row_already_processed_path):
+        file_pointer = open(row_already_processed_path, "w")
+        start = int(file_pointer.read())
+
+    else:
+        file_pointer = open(row_already_processed_path, "w")
+
+    try:
+        progress_log = tqdm.tqdm(total=total, position=0, leave=False)
+        progress_log.update(start)
+        loggers.append(progress_log)
+        df = build_input_from_json_intermediate_step(
+            protein_list_a[start],
+            protein_list_b[start],
+            pdb_file_path,
+            current_log,
+            truncate_log,
+            interaction_type,
+        )
+
+        save_dataframe_to_file(df, prev_df_path)
+
+        for i in range(start + 1, total):
+            df = build_input_from_json_intermediate_step(
+                protein_list_a[i],
+                protein_list_b[i],
+                pdb_file_path,
+                current_log,
+                truncate_log,
+                interaction_type,
+            )
+
+            save_dataframe_to_file(df, current_df_path)
+            df = vaex.open_many([prev_df_path, current_df_path])
+            save_dataframe_to_file(df, prev_df_path)
+            progress_log.update(1)
+
+        print("Completed...")
+        save_build_df(loggers, prev_df_path, save_df_path)
+
+    except KeyboardInterrupt:
+        save_build_df(loggers, prev_df_path, save_df_path)
+
+
+build_input_from_json(
+    "pickle/interacting-protein/pair_selected.json", "pickle", "pickle_input_df", True
+)

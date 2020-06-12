@@ -39,7 +39,7 @@ def fetch_pdb_using_uniprot_id(id: str) -> (str, int):
         id: uniprot id.
 
     Returns:
-        Return a tuple of pdf file in text if found and status code.
+        Return a tuple of pdb file in text if found and status code.
     """
     import requests
 
