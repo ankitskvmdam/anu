@@ -1,9 +1,12 @@
 """CNN model trainer."""
 
 import os
+import pathlib
+from time import asctime, time
 from typing import Optional
 
 from logzero import logger
+import torch
 from torch.autograd import Variable
 from torch.nn import CrossEntropyLoss
 from torch.optim import Adam
@@ -47,38 +50,53 @@ class CNNTrainer:
         logger.info("Initialized model.")
 
         # write model to tensorboard
-        self.writer.add_graph(cnn_net)
-        logger.info("Graph added to tensor board")
+        # self.writer.add_graph(cnn_net)
+        # logger.info("Graph added to tensor board")
 
         # spawn an optimizer
-        optimizer = Adam(cnn_net.parameters(), lr=0.0001).to(self.config["device"])
+        optimizer = Adam(cnn_net.parameters(), lr=0.0001)  # .to(self.config["device"])
         logger.info("Initialized optimizer [ADAM]")
 
         # loss criterion
         criterion_loss = CrossEntropyLoss()
         logger.info("Initialized loss criterion")
 
-        for _epoch in tqdm(self.config["epochs"]):
-            for input_labels, input_batch in tqdm(self.train_dataloader):
+        current_status = tqdm(total=0, position=3, bar_format="{desc}")
+        save_status = tqdm(total=0, position=4, bar_format="{desc}")
+        for _epoch in tqdm(range(self.config["epochs"]), unit=" epoch", position=1):
+            for idx, (input_labels, input_batch) in enumerate(
+                tqdm(self.train_dataloader, position=2, unit=" row")
+            ):
                 # forward pass
-                logger.info("Forward pass.")
+                current_status.set_description("Forward pass.")
                 output = cnn_net(input_batch.float().to(self.config["device"]))
 
                 # calculate loss
-                logger.info("Calculate loss.")
+                current_status.set_description("Calculate loss.")
                 loss = criterion_loss(
                     output,
                     Variable((input_labels.max(dim=0)[1]).to(self.config["device"])),
                 )
 
                 # backward pass
-                logger.info("Loss backward.")
+                current_status.set_description("Loss backward.")
                 loss.backward()
 
                 # update parameters
                 optimizer.step()
 
                 # TODO: Add callbacks for writing metrics and visualizations
+                if idx % 100 == 0:
+                    save_status.set_description("Saving model")
+                    path = os.path.join(
+                        self.config["model_savedir"], "cnn", str(int(time()))
+                    )
+                    pathlib.Path(path).mkdir(exist_ok=True, parents=True)
+                    torch.save(cnn_net, f"{path}/{int(time())}.pt")
+                    save_status.set_description(f"Last model saved at: {asctime()}")
 
+            torch.save(
+                cnn_net,
+                os.path.join(self.config["model_savedir"], "cnn", "{_epoch}.pt"),
+            )
             logger.info("Saving model.")
-            cnn_net.save(os.path.join(self.config["model_savedir"], "cnn"))
