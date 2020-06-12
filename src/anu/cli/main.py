@@ -2,9 +2,9 @@
 
 import click
 
-from .. import __version__
-
 from anu.cli.data import data
+from anu.cli.train import train
+from .. import __version__
 
 
 @click.group()
@@ -15,3 +15,4 @@ def main() -> None:
 
 
 main.add_command(data)
+main.add_command(train)
