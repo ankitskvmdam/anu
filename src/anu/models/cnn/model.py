@@ -30,7 +30,7 @@ class ConvNet(nn.Module):
         )
 
         self.fcn = nn.Sequential(
-            nn.Linear(30 * 1 * 500, 1500),
+            nn.Linear(30 * 1 * 500 * 2, 1500),
             nn.ReLU(inplace=True),
             nn.Linear(1500, 120),
             nn.ReLU(inplace=True),
