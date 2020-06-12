@@ -16,10 +16,10 @@ def cnn() -> None:
 
     try:
         click.secho("Starting cnn training", fg="blue")
-        train_cnn([PICKLE_PATH, NEGATOME_PATH])
+        train_cnn([PICKLE_PATH, NEGATOME_PATH], num_workers=0)
     except OSError:
         click.secho("Unable to load input", fg="red")
-        click.secho("You probable forgot to run: anu data prepare-input", fg="yellow")
+        click.secho("You probably forgot to run: anu data prepare-input", fg="yellow")
         click.secho("Both interacting and non-interacting input must be prepared.")
         exit()
 
