@@ -2,7 +2,7 @@
 
 import os
 from statistics import mean
-from typing import List, Tuple, TypedDict
+from typing import List, Tuple, TypedDict, Union
 
 from Bio.PDB import PDBParser, Polypeptide
 import pyarrow
@@ -46,7 +46,9 @@ class BuildMatrixDict(TypedDict):
     charge: List[List[int]]
 
 
-def build_matrix(path: str, filename: str, truncate_log: tqdm.tqdm) -> BuildMatrixDict:
+def build_matrix(
+    path: str, filename: str, truncate_log: Union[tqdm.tqdm, None] = None
+) -> BuildMatrixDict:
     """Build the input matrix for one protein.
 
     Args:
@@ -107,9 +109,8 @@ def build_matrix(path: str, filename: str, truncate_log: tqdm.tqdm) -> BuildMatr
                 col = col + 1
 
     except IndexError:
-        truncate_log.set_description(
-            f"Protein {filename} is truncated. Max allowed size {PROTEIN_SEQ_MAX_LEN}"
-        )
+        if truncate_log is not None:
+            truncate_log.set_description_str(f"Protein {filename} is truncated.")
 
     # Prepare dict so it can be load to vaex dataframe
     dic: BuildMatrixDict = {
@@ -134,7 +135,9 @@ def build_matrix(path: str, filename: str, truncate_log: tqdm.tqdm) -> BuildMatr
 
 
 def build_df_from_dic(
-    protein_a: BuildMatrixDict, protein_b: BuildMatrixDict, interaction_type: bool
+    protein_a: BuildMatrixDict,
+    protein_b: BuildMatrixDict,
+    interaction_type: Union[bool, None] = None,
 ) -> vaex.dataframe.DataFrame:
     """Build dataframe using protein dict.
 
@@ -146,9 +149,13 @@ def build_df_from_dic(
     Returns:
         vaex dataframe.
     """
-    interaction_array = (
-        pyarrow.array([[1, 0]]) if interaction_type else pyarrow.array([[0, 1]])
-    )
+    if interaction_type is not None:
+        interaction_array = (
+            pyarrow.array([[1, 0]]) if interaction_type else pyarrow.array([[0, 1]])
+        )
+
+    else:
+        interaction_array = [[]]
 
     return vaex.from_arrays(
         proteinA_seq=protein_a[col_name[0]],
@@ -226,7 +233,7 @@ def build_input_from_json_intermediate_step(
     Returns:
         vaex dataframe.
     """
-    current_log.set_description(f"Processing  [{protein_a}, {protein_b}]")
+    current_log.set_description_str(f"Processing  [{protein_a}, {protein_b}]")
     a = build_matrix(
         os.path.join(pdb_file_path, f"{protein_a}.pdb"), protein_a, truncate_log
     )
