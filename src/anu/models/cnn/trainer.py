@@ -41,7 +41,7 @@ class CNNTrainer:
         self.valid_dataloader = valid_dataloader
         self.model = model
 
-    def train(self: "CNNTrainer") -> None:
+    def train(self: "CNNTrainer", filename: str) -> None:
         """Trains the model."""
         logger.info("Starting ConvNet Training.")
 
@@ -64,42 +64,36 @@ class CNNTrainer:
         current_status = tqdm(total=0, position=3, bar_format="{desc}")
         save_status = tqdm(total=0, position=4, bar_format="{desc}")
         for _epoch in tqdm(range(self.config["epochs"]), unit=" epoch", position=1):
-            for idx, (input_labels, input_batch) in enumerate(
+            for _, (input_labels, input_batch) in enumerate(
                 tqdm(self.train_dataloader, position=2, unit=" row", leave=False)
             ):
                 # forward pass
-                current_status.set_description("Forward pass.")
+                current_status.set_description_str("Forward pass.")
                 output = cnn_net(input_batch.float().to(self.config["device"]))
 
                 # calculate loss
-                current_status.set_description("Calculate loss.")
+                current_status.set_description_str("Calculate loss.")
                 loss = criterion_loss(
                     output,
                     Variable((input_labels.max(dim=0)[1]).to(self.config["device"])),
                 )
 
                 # backward pass
-                current_status.set_description("Loss backward.")
+                current_status.set_description_str("Loss backward.")
                 loss.backward()
 
                 # update parameters
                 optimizer.step()
 
                 # TODO: Add callbacks for writing metrics and visualizations
-                # if idx % 100 == 0:
-                #     save_status.set_description("Saving model")
-                # path = os.path.join(
-                #     self.config["model_savedir"], "cnn", str(int(time()))
-                # )
-                # pathlib.Path(path).mkdir(exist_ok=True, parents=True)
-                #     torch.save(cnn_net, f"{path}/{int(time())}.pt")
-                #     save_status.set_description(f"Last model saved at: {asctime()}")
 
-            save_status.set_description("Saving model")
+            save_status.set_description_str("Saving model")
             path = os.path.join(self.config["model_savedir"], "cnn", str(int(time())))
             pathlib.Path(path).mkdir(exist_ok=True, parents=True)
             torch.save(
                 cnn_net,
-                os.path.join(self.config["model_savedir"], "cnn", "{_epoch}.pt"),
+                os.path.join(
+                    self.config["model_savedir"], "cnn", f"{_epoch}_{filename}"
+                ),
             )
-            save_status.set_description(f"Last model saved at: {asctime()}")
+            save_status.set_description_str(f"Last model saved at: {asctime()}")
