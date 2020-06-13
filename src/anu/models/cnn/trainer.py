@@ -65,7 +65,7 @@ class CNNTrainer:
         save_status = tqdm(total=0, position=4, bar_format="{desc}")
         for _epoch in tqdm(range(self.config["epochs"]), unit=" epoch", position=1):
             for idx, (input_labels, input_batch) in enumerate(
-                tqdm(self.train_dataloader, position=2, unit=" row")
+                tqdm(self.train_dataloader, position=2, unit=" row", leave=False)
             ):
                 # forward pass
                 current_status.set_description("Forward pass.")
@@ -86,17 +86,20 @@ class CNNTrainer:
                 optimizer.step()
 
                 # TODO: Add callbacks for writing metrics and visualizations
-                if idx % 100 == 0:
-                    save_status.set_description("Saving model")
-                    path = os.path.join(
-                        self.config["model_savedir"], "cnn", str(int(time()))
-                    )
-                    pathlib.Path(path).mkdir(exist_ok=True, parents=True)
-                    torch.save(cnn_net, f"{path}/{int(time())}.pt")
-                    save_status.set_description(f"Last model saved at: {asctime()}")
+                # if idx % 100 == 0:
+                #     save_status.set_description("Saving model")
+                # path = os.path.join(
+                #     self.config["model_savedir"], "cnn", str(int(time()))
+                # )
+                # pathlib.Path(path).mkdir(exist_ok=True, parents=True)
+                #     torch.save(cnn_net, f"{path}/{int(time())}.pt")
+                #     save_status.set_description(f"Last model saved at: {asctime()}")
 
+            save_status.set_description("Saving model")
+            path = os.path.join(self.config["model_savedir"], "cnn", str(int(time())))
+            pathlib.Path(path).mkdir(exist_ok=True, parents=True)
             torch.save(
                 cnn_net,
                 os.path.join(self.config["model_savedir"], "cnn", "{_epoch}.pt"),
             )
-            logger.info("Saving model.")
+            save_status.set_description(f"Last model saved at: {asctime()}")
