@@ -145,11 +145,6 @@ def fetch_pdb_from_df(path: str, db_name: str) -> None:
             with open(protein_missing_file_path) as file:
                 protein_missing = json.load(file)
 
-        # check if we have a file containing list of protein missing pdb.
-        if exists(pair_selected_path):
-            with open(pair_selected_path) as file:
-                pair_selected = json.load(file)
-
         try:
             current_id_log = tqdm(total=0, position=0, bar_format="{desc}")
             missing_log = tqdm(total=0, position=2, bar_format="{desc}")
