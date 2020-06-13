@@ -7,54 +7,13 @@ import time
 
 import click
 
-from anu.cli.utils.download_bar import print_progress
+from anu.data.data_operations import fetch_from_zenodo
 from anu.data.pipelines.process_raw_data import fetch_pdb_from_df
 from anu.data.dataframe_operation import read_dataframe_from_file
 
 
-def download_from_zenodo(id: str, path: str, filename: str) -> None:
-    """Download data from zenodo
-
-    Args:
-        id: zenodo record id.
-        path: directory path where to save file.
-        filename: name of the downloaded file.
-    """
-    zendo_base_get_url = "https://zenodo.org/api/records/"
-
-    click.secho("Retrieving download information")
-    r = requests.get(f"{zendo_base_get_url}{id}")
-    r = r.json()
-
-    click.secho(f"Downloading file: {filename}")
-    file_link = r["files"][0]["links"]["self"]
-    file_path = os.path.join(path, filename)
-
-    r = requests.get(file_link, stream=True)
-    file_size = int(r.headers.get("content-length"))
-    with open(file_path, "w") as f:
-        start = int(time.time())
-        size = 0
-        speed = 0
-        total_size = 0
-        for chunk in r.iter_content(chunk_size=1024):
-            if chunk:
-                size = size + f.write(chunk.decode("utf-8"))
-                f.flush()
-
-                total_size = total_size + len(chunk)
-                end = int(time.time())
-                diff = end - start
-                if diff > 1:
-                    start = int(time.time())
-                    speed = size
-                    size = 0
-                print_progress(file_size, total_size, speed)
-        print("\n")
-
-
 @click.command()
-def fetch_databases() -> None:
+def databases() -> None:
     """Fetch data from all database.
 
     Currently only fetch data from pickle 2.5 (interacting protein database) and
@@ -82,10 +41,10 @@ def fetch_databases() -> None:
     try:
         # Downloading files
         click.secho("Downloading Negatome database.")
-        download_from_zenodo(NEGATOME_ID, NEGATOME_PATH, "non-interacting-protein.tsv")
+        fetch_from_zenodo(NEGATOME_ID, NEGATOME_PATH, "non-interacting-protein.tsv")
 
         click.secho("Downloading Pickle database.")
-        download_from_zenodo(PICKLE_ID, PICKLE_PATH, "interacting-protein.txt")
+        fetch_from_zenodo(PICKLE_ID, PICKLE_PATH, "interacting-protein.txt")
 
         click.secho("Database fetching is completed successfully", fg="green")
 
@@ -94,7 +53,7 @@ def fetch_databases() -> None:
         click.secho("Database fetching failed", fg="red")
 
 
-def fetch_pdb_cli(path: str, db_name: str) -> None:
+def pdb_cli(path: str, db_name: str) -> None:
     """Fetch PDB files.
 
     Args:
@@ -133,17 +92,27 @@ def fetch_pdb_cli(path: str, db_name: str) -> None:
     is_flag=True,
     help="Download pdb files for present in negatome dataset",
 )
-def fetch_pdb_files(pickle: bool, negatome: bool) -> None:
+def pdb(pickle: bool, negatome: bool) -> None:
     """Fetch required pdb files."""
     PICKLE_PATH = os.path.join("pickle", "interacting-protein")
     NEGATOME_PATH = os.path.join("negatome", "non-interacting-protein")
 
     if pickle:
-        fetch_pdb_cli(PICKLE_PATH, "pickle")
+        pdb_cli(PICKLE_PATH, "pickle")
 
     elif negatome:
-        fetch_pdb_cli(NEGATOME_PATH, "negatome")
+        pdb_cli(NEGATOME_PATH, "negatome")
 
     else:
-        fetch_pdb_cli(PICKLE_PATH, "pickle")
-        fetch_pdb_cli(NEGATOME_PATH, "negatome")
+        pdb_cli(PICKLE_PATH, "pickle")
+        pdb_cli(NEGATOME_PATH, "negatome")
+
+
+@click.group()
+def fetch() -> None:
+    """Currently fetch databases or pdb files."""
+    pass
+
+
+fetch.add_command(pdb)
+fetch.add_command(databases)

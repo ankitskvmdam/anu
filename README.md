@@ -88,10 +88,10 @@ poetry install
 > Currently there is no way to specify anu to download only one databases. This feature will be implemented in future release.
 ```bash
 # Download both databases
-anu data fetch-databases
+anu data fetch databases
 
 # For help/more information
-anu data fetch-databases --help
+anu data fetch databases --help
 ```
 
 #### Step 2: Prepare dataframe
@@ -100,10 +100,10 @@ anu data fetch-databases --help
 > Currently there is no way to specify anu to make individual dataframes. This feature will be implemented in future release.
 ```bash
 # Prepare pickle and negatome dataframe
-anu data prepare-dataframes
+anu data prepare dataframes
 
 # For help/more information
-anu data prepare-dataframes -- help
+anu data prepare dataframes -- help
 ```
 
 #### Step 3: Fetch PDB files
@@ -112,20 +112,20 @@ Now we have to fetch the PDB file.
 
 ```bash
 # For help/more information
-anu data fetch-pdb-files --help
+anu data fetch pdb --help
 
 # Fetch pdb files for protein present in pickle dataset
-anu data fetch-pdb-file -p
+anu data fetch pdb -p
 # or
-anu data fetch-pdb-file --pickle
+anu data fetch pdb --pickle
 
 # Fetch pdb file for protein present in negatome dataset
-anu data fetch-pdb-file -n
+anu data fetch pdb -n
 # or
-anu data fetch-pdb-file --negatome
+anu data fetch pdb --negatome
 
 # Fetch pdb file from both data set
-anu data fetch-pdb-file
+anu data fetch pdb
 ```
 
 If the pdb file is already downloaded it will not be downloaded again. Downloading of pdb files is sync between both datasets.
@@ -135,20 +135,20 @@ This is also a time taking process.
 
 ```bash
 # For help/more information
-anu data prepare-input --help
+anu data prepare inputs --help
 
 # Prepare interacting protein dataframe
-anu data prepare-input -i
+anu data prepare inputs -i
 # or
-anu data prepare-input --interacting
+anu data prepare inputs --interacting
 
 # Prepare non interacting protein dataframe
-anu data prepare-input -n
+anu data prepare inputs -n
 # or
-anu data prepare-input --non-interacting
+anu data prepare inputs --non-interacting
 
 # Prepare both input dataframes
-anu data prepare-input
+anu data prepare inputs
 ```
 
 #### Step 5: Train model

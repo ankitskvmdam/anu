@@ -2,8 +2,8 @@
 
 import click
 
-from .fetch import fetch_databases, fetch_pdb_files
-from .prepare import prepare_dataframes, prepare_input
+from .fetch import fetch
+from .prepare import prepare
 
 
 @click.group()
@@ -12,10 +12,5 @@ def data() -> None:
     pass
 
 
-# Fetch commands
-data.add_command(fetch_databases)
-data.add_command(fetch_pdb_files)
-
-# Prepare command
-data.add_command(prepare_dataframes)
-data.add_command(prepare_input)
+data.add_command(fetch)
+data.add_command(prepare)

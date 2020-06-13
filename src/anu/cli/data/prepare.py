@@ -13,7 +13,7 @@ from anu.data.pipelines.prepare_input import build_input_from_json
 
 
 @click.command()
-def prepare_dataframes() -> None:
+def dataframes() -> None:
     """Prepare the dataframes from raw data.
 
     This function first prepare the dataframe using pickle dataset
@@ -86,7 +86,7 @@ def prepare_dataframes() -> None:
     is_flag=True,
     help="Prepare non-interacting input dataframe for training",
 )
-def prepare_input(interacting: bool, non_interacting: bool) -> None:
+def inputs(interacting: bool, non_interacting: bool) -> None:
     """Prepare input dataframe for training."""
     NEGATOME_PATH = os.path.join(
         "negatome", "non-interacting-protein", "pair_selected.json"
@@ -109,3 +109,13 @@ def prepare_input(interacting: bool, non_interacting: bool) -> None:
         click.secho("Now, building non-interacting protein input dataframe", fg="blue")
         build_input_from_json(NEGATOME_PATH, "negatome", "negatome_input_df", False)
         click.secho("Process completed successfully", fg="green")
+
+
+@click.group()
+def prepare() -> None:
+    """Currently only prepare dataframes or input."""
+    pass
+
+
+prepare.add_command(dataframes)
+prepare.add_command(inputs)

@@ -1,6 +1,13 @@
 """module to prepare data."""
 
+import os
+import requests
+from time import time
+
+import click
 import vaex
+
+from anu.cli.utils.download_bar import print_progress
 
 
 def extract_proteins_id_from_dataframe(
@@ -41,8 +48,6 @@ def fetch_pdb_using_uniprot_id(id: str) -> (str, int):
     Returns:
         Return a tuple of pdb file in text if found and status code.
     """
-    import requests
-
     # Strip the id.
     id = str.strip(id)
 
@@ -53,3 +58,44 @@ def fetch_pdb_using_uniprot_id(id: str) -> (str, int):
 
     file = requests.get(complete_url)
     return (file.text, file.status_code)
+
+
+def fetch_from_zenodo(id: str, path: str, filename: str) -> None:
+    """Download data from zenodo
+
+    Args:
+        id: zenodo record id.
+        path: directory path where to save file.
+        filename: name of the downloaded file.
+    """
+    zendo_base_get_url = "https://zenodo.org/api/records/"
+
+    click.secho("Retrieving download information")
+    r = requests.get(f"{zendo_base_get_url}{id}")
+    r = r.json()
+
+    click.secho(f"Downloading file: {filename}")
+    file_link = r["files"][0]["links"]["self"]
+    file_path = os.path.join(path, filename)
+
+    r = requests.get(file_link, stream=True)
+    file_size = int(r.headers.get("content-length"))
+    with open(file_path, "w") as f:
+        start = int(time())
+        size = 0
+        speed = 0
+        total_size = 0
+        for chunk in r.iter_content(chunk_size=1024):
+            if chunk:
+                size = size + f.write(chunk.decode("utf-8"))
+                f.flush()
+
+                total_size = total_size + len(chunk)
+                end = int(time())
+                diff = end - start
+                if diff > 1:
+                    start = int(time())
+                    speed = size
+                    size = 0
+                print_progress(file_size, total_size, speed)
+        print("\n")
