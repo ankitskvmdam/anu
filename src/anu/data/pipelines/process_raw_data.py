@@ -4,7 +4,6 @@ import json
 from os.path import abspath, basename, dirname, exists, join, realpath, splitext
 from typing import List, Tuple
 
-import click
 from tqdm import tqdm
 import vaex
 
@@ -19,9 +18,6 @@ from anu.data.dataframe_operation import (
 )
 
 
-from multiprocessing import Pool, Process, Queue, freeze_support, cpu_count, Lock
-
-
 def process_raw_csv_data(path: str, db_name: str, sep: str = "\t") -> None:
     """Process raw apid data.
 
@@ -30,7 +26,8 @@ def process_raw_csv_data(path: str, db_name: str, sep: str = "\t") -> None:
 
     Args:
         path: path or raw apid file relative to /data/raw folder.
-        db_name: name of the database
+        db_name: name of the database.
+        sep: separator.
     """
     df = convert_csv_to_dataframe(path)
 
@@ -146,11 +143,23 @@ def fetch_pdb_from_df(path: str, db_name: str) -> None:
                 protein_missing = json.load(file)
 
         try:
-            current_id_log = tqdm(total=0, position=0, bar_format="{desc}")
-            missing_log = tqdm(total=0, position=2, bar_format="{desc}")
-            fetched_log = tqdm(total=0, position=3, bar_format="{desc}")
-            processed_ok_log = tqdm(total=0, position=4, bar_format="{desc}")
-            saving_log = tqdm(total=0, position=5, bar_format="{desc}")
+            current_id_log = tqdm(
+                total=0, position=0, bar_format="{desc} is downloading", leave=False
+            )
+            missing_log = tqdm(
+                total=0,
+                position=2,
+                bar_format="{desc}  is the last missing id.",
+                leave=False,
+            )
+            fetched_log = tqdm(total=0, position=3, bar_format="{desc}", leave=False)
+            processed_ok_log = tqdm(
+                total=0,
+                position=4,
+                bar_format="Last pair selected: {desc}",
+                leave=False,
+            )
+            saving_log = tqdm(total=0, position=5, bar_format="{desc}", leave=False)
 
             for index, row in tqdm(
                 df.iterrows(), total=len(df), unit="files", position=1
@@ -161,9 +170,7 @@ def fetch_pdb_from_df(path: str, db_name: str) -> None:
                 for id in ids:
                     id = str.strip(id)
                     if id in protein_missing:
-                        missing_log.set_description(
-                            f"{id} is in missing list. Not processing this id."
-                        )
+                        missing_log.set_description_str(f"{id}")
                         flag = False
                         break
                 if flag is False:
@@ -173,17 +180,15 @@ def fetch_pdb_from_df(path: str, db_name: str) -> None:
 
                 for id in ids:
                     id = str.strip(id)
-                    current_id_log.set_description(
-                        f"Currently downloading protein id is: {id}"
-                    )
+                    current_id_log.set_description_str(f"{id}")
 
                     if id not in processed_protein_ids:
                         file, status = fetch_pdb_using_uniprot_id(id)
                         processed_protein_ids[id] = id
 
                         if status == 200:
-                            fetched_log.set_description(
-                                f"Protein id: {id} fetched successfully."
+                            fetched_log.set_description_str(
+                                f"Protein id: {id} downloaded successfully."
                             )
                             protein_fetched_ok[id] = id
                             pdb_file_location = join(
@@ -194,17 +199,17 @@ def fetch_pdb_from_df(path: str, db_name: str) -> None:
                                 pdb.write(file)
 
                         else:
-                            missing_log.set_description(
+                            missing_log.set_description_str(
                                 f"Unable to download pdb file with uniport id: {id}. Moving {id} to missing list"
                             )
                             protein_missing[id] = id
                             flag = False
                     else:
-                        fetched_log.set_description(f"{id} is already downloaded.")
+                        fetched_log.set_description_str(f"{id} is already downloaded.")
 
                 if flag is True:
-                    processed_ok_log.set_description(
-                        f"Moving pair [{str.strip(ids[0])}, {str.strip(ids[1])}] to pair selected list."
+                    processed_ok_log.set_description_str(
+                        f"[{str.strip(ids[0])}, {str.strip(ids[1])}]"
                     )
                     i = 0
                     for col_name in df.column_names:
@@ -212,7 +217,7 @@ def fetch_pdb_from_df(path: str, db_name: str) -> None:
                         i = i + 1
 
                 if index % 100 == 0:
-                    saving_log.set_description("Saving data. Please wait...")
+                    saving_log.set_description_str("Saving progress")
                     path_list = [
                         (pair_selected_path, pair_selected),
                         (processed_protein_ids_file_path, processed_protein_ids),
@@ -222,8 +227,13 @@ def fetch_pdb_from_df(path: str, db_name: str) -> None:
 
                     save_all_progess(path_list)
 
-                    saving_log.set_description("Saving completed")
+                    saving_log.clear()
 
+            current_id_log.close()
+            missing_log.close()
+            fetched_log.close()
+            processed_ok_log.close()
+            saving_log.close()
             print("All completed. Saving data. Please wait...")
             path_list = [
                 (pair_selected_path, pair_selected),
@@ -241,6 +251,16 @@ def fetch_pdb_from_df(path: str, db_name: str) -> None:
             save_dataframe_to_file(final_df, file_path)
 
         except KeyboardInterrupt:
+            current_id_log.clear()
+            missing_log.clear()
+            fetched_log.clear()
+            processed_ok_log.clear()
+            saving_log.clear()
+            current_id_log.close()
+            missing_log.close()
+            fetched_log.close()
+            processed_ok_log.close()
+            saving_log.close()
 
             print("Saving data. Please wait...")
             path_list = [
