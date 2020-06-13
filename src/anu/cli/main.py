@@ -3,6 +3,7 @@
 import click
 
 from anu.cli.data import data
+from anu.cli.predict import predict
 from anu.cli.train import train
 from .. import __version__
 
@@ -15,4 +16,5 @@ def main() -> None:
 
 
 main.add_command(data)
+main.add_command(predict)
 main.add_command(train)
