@@ -156,3 +156,20 @@ Currently cnn model is only available.
 ```bash
 anu train cnn
 ```
+
+#### Step 6: Predict
+Before prediction you have to train the model.
+
+```bash
+# For help/more information
+anu predict protein --help
+
+# given pdb id as input
+anu predict protein -p "1gzx" "4hh3"
+
+# give uniprot id as input
+anu predict protein -u "F4JRB0" "Q8RX29"
+
+# give path as input
+anu predict protein "path/to/protein/a.pdb" "path/to/protein/b.pdb"
+```
