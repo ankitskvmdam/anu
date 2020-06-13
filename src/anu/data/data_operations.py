@@ -1,10 +1,10 @@
 """module to prepare data."""
 
 import os
-import requests
 from time import time
 
 import click
+import requests
 import vaex
 
 from anu.cli.utils.download_bar import print_progress
@@ -61,7 +61,7 @@ def fetch_pdb_using_uniprot_id(id: str) -> (str, int):
 
 
 def fetch_from_zenodo(id: str, path: str, filename: str) -> None:
-    """Download data from zenodo
+    """Download data from zenodo.
 
     Args:
         id: zenodo record id.
@@ -99,3 +99,24 @@ def fetch_from_zenodo(id: str, path: str, filename: str) -> None:
                     size = 0
                 print_progress(file_size, total_size, speed)
         print("\n")
+
+
+def fetch_pdb_from_pdb_id(id: str) -> (str, int):
+    """Fetch pdb.
+
+    Args:
+        id: pdb id.
+
+    Returns:
+        Return a tuple of pdb file in text if found and status code.
+    """
+    # Strip the id.
+    id = str.strip(id)
+
+    base_url = "https://files.rcsb.org/download/"
+    format = ".pdb"
+
+    complete_url = f"{base_url}{id}{format}"
+
+    file = requests.get(complete_url)
+    return (file.text, file.status_code)
