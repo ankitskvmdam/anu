@@ -7,7 +7,7 @@ from typing import Dict, TypedDict
 class AcidityBasicity(Enum):
     """Enum for acidity and basicity."""
 
-    U = 0  # Neutral
+    U = 3  # Neutral
     A = 1  # Acid
     B = 2  # Base
 
@@ -15,7 +15,7 @@ class AcidityBasicity(Enum):
 class Charge(Enum):
     """Enum for charge."""
 
-    U = 0  # Neutral
+    U = 3  # Neutral
     P = 1  # Positive
     N = 2  # Negative
 
