@@ -53,7 +53,7 @@ def save_dataframe_to_file(df: vaex.dataframe.DataFrame, filename: str) -> bool:
 
     path_to_processed_data = os.path.join(get_base_data_path(), "processed")
 
-    if os.path.exists(path_to_processed_data):
+    try:
         path = os.path.realpath(os.path.join(path_to_processed_data, filename))
         dir = os.path.dirname(path)
         pathlib.Path(dir).mkdir(parents=True, exist_ok=True)
@@ -64,7 +64,10 @@ def save_dataframe_to_file(df: vaex.dataframe.DataFrame, filename: str) -> bool:
         df.export(f"{path}.arrow")
         return True
 
-    return False
+    except OSError as err:
+        print(err)
+        return False
+
 
 
 def read_dataframe_from_file(path: str) -> Optional[vaex.dataframe.DataFrame]:
