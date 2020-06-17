@@ -8,7 +8,8 @@ Predicting interactions among protein, DNA and RNA.
 
 ### Requirement
 * git
-* python 3.8 or above
+* python 3.6 or above
+* python virtual environment
 
 ## Developing
 
