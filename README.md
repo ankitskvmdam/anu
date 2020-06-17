@@ -76,6 +76,10 @@ pipx install poetry
 ### Install anu
 Now you have to run the following command
 ```bash
+# First move to the directory
+cd anu
+
+# Installing anu
 poetry install
 ```
 
