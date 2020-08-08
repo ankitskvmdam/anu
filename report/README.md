@@ -13,7 +13,7 @@ kpsewhich -var-value=TEXMFHOME | cat | awk '{print $1"/tex"}'| xargs mkdir -p
 
 Change directory
 ```bash
-kpsewhich -var-value=TEXMFHOME | cat | xargs cd 
+kpsewhich -var-value=TEXMFHOME | cat | awk '{print $1"/tex"}'| xargs cd
 ```
 
 Clone Kaobook repo
