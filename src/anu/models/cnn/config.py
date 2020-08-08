@@ -21,10 +21,18 @@ def get_default_cnn_trainer_config() -> CNNTrainerConfig:
     logdir_path = os.path.join(root, "logs")
     model_savedir_path = os.path.join(root, "pre_trained_models")
 
-    config: CNNTrainerConfig = {
-        "device": "cpu",
-        "epochs": 10,
-        "logdir": logdir_path,
-        "model_savedir": model_savedir_path,
-    }
+    if os.environ.get("TRAIN_DEVICE") == "GPU":
+        config: CNNTrainerConfig = {
+            "device": "cuda:0",
+            "epochs": 10,
+            "logdir": logdir_path,
+            "model_savedir": model_savedir_path,
+        }
+    else:
+        config: CNNTrainerConfig = {
+            "device": "cpu",
+            "epochs": 10,
+            "logdir": logdir_path,
+            "model_savedir": model_savedir_path,
+        }
     return config
