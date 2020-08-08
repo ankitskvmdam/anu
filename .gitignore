@@ -13,3 +13,5 @@ __pycache__/
 .DS_Store
 **/logs/*
 **/pre_trained_models/*
+build
+indent.log
