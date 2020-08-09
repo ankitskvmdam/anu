@@ -32,6 +32,7 @@ pymex-lukasz99 = {git = "https://github.com/ankitskvmdam/pymex"}
 tqdm = "^4.46.1"
 tensorboard = "^2.2.2"
 logzero = "^1.5.0"
+zipp = "^3.1.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.3.2"
