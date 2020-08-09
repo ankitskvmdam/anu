@@ -73,7 +73,7 @@ def pdb_cli(path: str, db_name: str) -> None:
     except OSError:
         click.secho("Unable to load Dataframe", fg="red")
         click.secho(
-            "This is probably if you didn't run: anu data prepare-dataframes",
+            "This is probably if you didn't run: anu data prepare dataframes",
             fg="yellow",
         )
         exit()
