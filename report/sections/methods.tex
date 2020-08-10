@@ -7,9 +7,25 @@
 The CNN network accepts an input 2D feature vector of size 10 by 8000.
 This input is passed through a convolution layer, followed by a maxpooling layer.
 This is repeated two more time and at the end it outputs a vector of dimensions 30 by 2 by 500.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\linewidth]{cnn.png}
+    \caption{Convolution Layer. In the figure only one layer is shown. There are three layers in
+    sequence. First layer input is the raw feature matrix, while the input of other two layer is
+    the output of previous layer.}
+    \label{fig:cnn}
+\end{figure}
 
 This vector is then flattened and passed to a fully connected dense neural network.
 The output is a single value between 0 and 1, encoding non interaction and interaction respectively.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{fcn.png}
+    \caption{Fully connected Layer. Only one layer is shown. There are 3 such layer.}
+    \label{fig:fcn}
+\end{figure}
 
 \subsection{Implementation}
 Pytorch\sidecite{NEURIPS2019_9015} is used to implement the deep learning model.
