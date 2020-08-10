@@ -1,0 +1,550 @@
+{
+  "kind": "Graph",
+  "definitions": [
+    {
+      "kind": "NodeDefinition",
+      "name": "ConvolutionNeuralNetwork",
+      "body": {
+        "kind": "MetaNode",
+        "definitions": [
+          {
+            "kind": "Chain",
+            "blocks": [
+              {
+                "kind": "Node",
+                "node": {
+                  "kind": "LiteralNode",
+                  "type": {
+                    "kind": "NodeType",
+                    "value": "Input",
+                    "_source": {
+                      "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                      "startIdx": 46,
+                      "endIdx": 51,
+                      "_contents": "Input"
+                    }
+                  },
+                  "parameters": []
+                },
+                "alias": {
+                  "kind": "Identifier",
+                  "value": "featureMatrix",
+                  "_source": {
+                    "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                    "startIdx": 31,
+                    "endIdx": 44,
+                    "_contents": "featureMatrix"
+                  }
+                },
+                "_source": {
+                  "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                  "startIdx": 31,
+                  "endIdx": 61
+                }
+              }
+            ]
+          },
+          {
+            "kind": "Chain",
+            "blocks": [
+              {
+                "kind": "List",
+                "list": [
+                  {
+                    "kind": "Identifier",
+                    "value": "featureMatrix",
+                    "_source": {
+                      "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                      "startIdx": 62,
+                      "endIdx": 75,
+                      "_contents": "featureMatrix"
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "Node",
+                "node": {
+                  "kind": "LiteralNode",
+                  "type": {
+                    "kind": "NodeType",
+                    "value": "Convolution",
+                    "_source": {
+                      "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                      "startIdx": 87,
+                      "endIdx": 98,
+                      "_contents": "Convolution"
+                    }
+                  },
+                  "parameters": []
+                },
+                "alias": {
+                  "kind": "Identifier",
+                  "value": "conv2d",
+                  "_source": {
+                    "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                    "startIdx": 80,
+                    "endIdx": 86,
+                    "_contents": "conv2d"
+                  }
+                },
+                "_source": {
+                  "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                  "startIdx": 80,
+                  "endIdx": 99
+                }
+              },
+              {
+                "kind": "Node",
+                "node": {
+                  "kind": "LiteralNode",
+                  "type": {
+                    "kind": "NodeType",
+                    "value": "BatchNorm",
+                    "_source": {
+                      "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                      "startIdx": 102,
+                      "endIdx": 111,
+                      "_contents": "BatchNorm"
+                    }
+                  },
+                  "parameters": []
+                },
+                "_source": {
+                  "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                  "startIdx": 102,
+                  "endIdx": 112
+                }
+              },
+              {
+                "kind": "Node",
+                "node": {
+                  "kind": "LiteralNode",
+                  "type": {
+                    "kind": "NodeType",
+                    "value": "ReLU",
+                    "_source": {
+                      "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                      "startIdx": 115,
+                      "endIdx": 119,
+                      "_contents": "ReLU"
+                    }
+                  },
+                  "parameters": []
+                },
+                "_source": {
+                  "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                  "startIdx": 115,
+                  "endIdx": 120
+                }
+              },
+              {
+                "kind": "Node",
+                "node": {
+                  "kind": "LiteralNode",
+                  "type": {
+                    "kind": "NodeType",
+                    "value": "MaxPooling",
+                    "_source": {
+                      "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                      "startIdx": 134,
+                      "endIdx": 144,
+                      "_contents": "MaxPooling"
+                    }
+                  },
+                  "parameters": []
+                },
+                "alias": {
+                  "kind": "Identifier",
+                  "value": "maxPool2d",
+                  "_source": {
+                    "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                    "startIdx": 123,
+                    "endIdx": 132,
+                    "_contents": "maxPool2d"
+                  }
+                },
+                "_source": {
+                  "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                  "startIdx": 123,
+                  "endIdx": 145
+                }
+              },
+              {
+                "kind": "Node",
+                "node": {
+                  "kind": "LiteralNode",
+                  "type": {
+                    "kind": "NodeType",
+                    "value": "Out",
+                    "_source": {
+                      "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                      "startIdx": 153,
+                      "endIdx": 156,
+                      "_contents": "Out"
+                    }
+                  },
+                  "parameters": []
+                },
+                "alias": {
+                  "kind": "Identifier",
+                  "value": "out",
+                  "_source": {
+                    "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                    "startIdx": 148,
+                    "endIdx": 151,
+                    "_contents": "out"
+                  }
+                },
+                "_source": {
+                  "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                  "startIdx": 148,
+                  "endIdx": 157
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "NodeDefinition",
+      "name": "ConvolutionNeuralNetwork1",
+      "body": {
+        "kind": "MetaNode",
+        "definitions": [
+          {
+            "kind": "Chain",
+            "blocks": [
+              {
+                "kind": "Node",
+                "node": {
+                  "kind": "LiteralNode",
+                  "type": {
+                    "kind": "NodeType",
+                    "value": "Input",
+                    "_source": {
+                      "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                      "startIdx": 211,
+                      "endIdx": 216,
+                      "_contents": "Input"
+                    }
+                  },
+                  "parameters": []
+                },
+                "alias": {
+                  "kind": "Identifier",
+                  "value": "convOutputAsInput",
+                  "_source": {
+                    "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                    "startIdx": 192,
+                    "endIdx": 209,
+                    "_contents": "convOutputAsInput"
+                  }
+                },
+                "_source": {
+                  "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                  "startIdx": 192,
+                  "endIdx": 226
+                }
+              }
+            ]
+          },
+          {
+            "kind": "Chain",
+            "blocks": [
+              {
+                "kind": "List",
+                "list": [
+                  {
+                    "kind": "Identifier",
+                    "value": "convOutputAsInput",
+                    "_source": {
+                      "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                      "startIdx": 227,
+                      "endIdx": 244,
+                      "_contents": "convOutputAsInput"
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "Node",
+                "node": {
+                  "kind": "LiteralNode",
+                  "type": {
+                    "kind": "NodeType",
+                    "value": "Conv",
+                    "_source": {
+                      "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                      "startIdx": 256,
+                      "endIdx": 260,
+                      "_contents": "Conv"
+                    }
+                  },
+                  "parameters": []
+                },
+                "alias": {
+                  "kind": "Identifier",
+                  "value": "conv2d",
+                  "_source": {
+                    "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                    "startIdx": 249,
+                    "endIdx": 255,
+                    "_contents": "conv2d"
+                  }
+                },
+                "_source": {
+                  "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                  "startIdx": 249,
+                  "endIdx": 261
+                }
+              },
+              {
+                "kind": "Node",
+                "node": {
+                  "kind": "LiteralNode",
+                  "type": {
+                    "kind": "NodeType",
+                    "value": "BatchNorm",
+                    "_source": {
+                      "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                      "startIdx": 264,
+                      "endIdx": 273,
+                      "_contents": "BatchNorm"
+                    }
+                  },
+                  "parameters": []
+                },
+                "_source": {
+                  "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                  "startIdx": 264,
+                  "endIdx": 274
+                }
+              },
+              {
+                "kind": "Node",
+                "node": {
+                  "kind": "LiteralNode",
+                  "type": {
+                    "kind": "NodeType",
+                    "value": "ReLU",
+                    "_source": {
+                      "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                      "startIdx": 277,
+                      "endIdx": 281,
+                      "_contents": "ReLU"
+                    }
+                  },
+                  "parameters": []
+                },
+                "_source": {
+                  "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                  "startIdx": 277,
+                  "endIdx": 282
+                }
+              },
+              {
+                "kind": "Node",
+                "node": {
+                  "kind": "LiteralNode",
+                  "type": {
+                    "kind": "NodeType",
+                    "value": "MaxPooling",
+                    "_source": {
+                      "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                      "startIdx": 296,
+                      "endIdx": 306,
+                      "_contents": "MaxPooling"
+                    }
+                  },
+                  "parameters": []
+                },
+                "alias": {
+                  "kind": "Identifier",
+                  "value": "maxPool2d",
+                  "_source": {
+                    "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                    "startIdx": 285,
+                    "endIdx": 294,
+                    "_contents": "maxPool2d"
+                  }
+                },
+                "_source": {
+                  "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                  "startIdx": 285,
+                  "endIdx": 307
+                }
+              },
+              {
+                "kind": "Node",
+                "node": {
+                  "kind": "LiteralNode",
+                  "type": {
+                    "kind": "NodeType",
+                    "value": "Out",
+                    "_source": {
+                      "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                      "startIdx": 315,
+                      "endIdx": 318,
+                      "_contents": "Out"
+                    }
+                  },
+                  "parameters": []
+                },
+                "alias": {
+                  "kind": "Identifier",
+                  "value": "out",
+                  "_source": {
+                    "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                    "startIdx": 310,
+                    "endIdx": 313,
+                    "_contents": "out"
+                  }
+                },
+                "_source": {
+                  "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                  "startIdx": 310,
+                  "endIdx": 319
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Chain",
+      "blocks": [
+        {
+          "kind": "Node",
+          "node": {
+            "kind": "LiteralNode",
+            "type": {
+              "kind": "NodeType",
+              "value": "CNN",
+              "_source": {
+                "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                "startIdx": 328,
+                "endIdx": 331,
+                "_contents": "CNN"
+              }
+            },
+            "parameters": []
+          },
+          "alias": {
+            "kind": "Identifier",
+            "value": "conv1",
+            "_source": {
+              "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+              "startIdx": 322,
+              "endIdx": 327,
+              "_contents": "conv1"
+            }
+          },
+          "_source": {
+            "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+            "startIdx": 322,
+            "endIdx": 333
+          }
+        },
+        {
+          "kind": "Node",
+          "node": {
+            "kind": "LiteralNode",
+            "type": {
+              "kind": "NodeType",
+              "value": "CNN1",
+              "_source": {
+                "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                "startIdx": 342,
+                "endIdx": 346,
+                "_contents": "CNN1"
+              }
+            },
+            "parameters": []
+          },
+          "alias": {
+            "kind": "Identifier",
+            "value": "conv2",
+            "_source": {
+              "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+              "startIdx": 336,
+              "endIdx": 341,
+              "_contents": "conv2"
+            }
+          },
+          "_source": {
+            "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+            "startIdx": 336,
+            "endIdx": 347
+          }
+        },
+        {
+          "kind": "Node",
+          "node": {
+            "kind": "LiteralNode",
+            "type": {
+              "kind": "NodeType",
+              "value": "CNN1",
+              "_source": {
+                "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                "startIdx": 356,
+                "endIdx": 360,
+                "_contents": "CNN1"
+              }
+            },
+            "parameters": []
+          },
+          "alias": {
+            "kind": "Identifier",
+            "value": "conv3",
+            "_source": {
+              "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+              "startIdx": 350,
+              "endIdx": 355,
+              "_contents": "conv3"
+            }
+          },
+          "_source": {
+            "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+            "startIdx": 350,
+            "endIdx": 361
+          }
+        },
+        {
+          "kind": "Node",
+          "node": {
+            "kind": "LiteralNode",
+            "type": {
+              "kind": "NodeType",
+              "value": "Out",
+              "_source": {
+                "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+                "startIdx": 382,
+                "endIdx": 385,
+                "_contents": "Out"
+              }
+            },
+            "parameters": []
+          },
+          "alias": {
+            "kind": "Identifier",
+            "value": "convolutionOutput",
+            "_source": {
+              "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+              "startIdx": 364,
+              "endIdx": 381,
+              "_contents": "convolutionOutput"
+            }
+          },
+          "_source": {
+            "sourceString": "+ConvolutionNeuralNetwork{\n    featureMatrix: Input\n    \n    [featureMatrix] -> conv2d:Convolution -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\n+ConvolutionNeuralNetwork1{\n    convOutputAsInput: Input\n    \n    [convOutputAsInput] -> conv2d:Conv -> BatchNorm -> ReLU -> maxPool2d: MaxPooling -> out: Out\n}\n\nconv1:CNN  -> conv2:CNN1 -> conv3:CNN1 -> convolutionOutput:Out",
+            "startIdx": 364,
+            "endIdx": 385
+          }
+        }
+      ]
+    }
+  ]
+}
