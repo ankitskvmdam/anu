@@ -2,7 +2,7 @@
 
 > This project is not completed.
 
-Predicting interactions among protein, DNA and RNA.
+Anu, a machine learning (ML) model to predict protein-protien interaction. Anu is a framework to test and benchmark ML models for prediction protein-protein interactiosn. It automates data retrieval, feature engineering and model evaluation.
 
 ## Getting Started
 
